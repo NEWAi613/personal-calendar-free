@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 import hashlib
+import html
 import json
+import re
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -14,17 +17,7 @@ LON = 116.2985
 TZ = "Asia/Shanghai"
 OUT = Path(__file__).resolve().parent / "calendar.ics"
 TODAY = date.today()
-DAYS = 14
-
-AI_TOPICS = [
-    "检查 AI 热点：OpenAI / Claude / Gemini / 国内大模型",
-    "整理一个适合小白的 AI 实操选题",
-    "复盘本周 AI 工具更新，筛出能做成短视频的点",
-]
-MOVIE_TOPICS = [
-    "检查影视更新：新剧、新片、平台热榜",
-    "整理可做内容的影视热点，保留 1-2 个选题",
-]
+WEATHER_DAYS = 7
 
 CN_HOLIDAYS_FIXED = {"01-01": "元旦", "05-01": "劳动节", "10-01": "国庆节"}
 CN_HOLIDAYS_2026 = {
@@ -34,10 +27,180 @@ CN_HOLIDAYS_2026 = {
     "2026-09-25": "中秋节",
 }
 
+FALLBACK_AI = [
+    {"title": "AI 热点暂未拉取到实时新闻，建议关注 OpenAI、Claude、Gemini、DeepSeek、国内大模型更新", "url": ""},
+]
+FALLBACK_ENTERTAINMENT = [
+    {"title": "影视热点暂未拉取到实时新闻，建议关注院线新片、平台新剧、国漫/日漫更新和热榜口碑变化", "url": ""},
+]
 
-def fetch_json(url: str, timeout: int = 15) -> dict:
-    with urllib.request.urlopen(url, timeout=timeout) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+
+def fetch_json(url: str, timeout: int = 15, retries: int = 3) -> dict:
+    last_error = None
+    for _ in range(max(1, retries)):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "personal-calendar-free/1.0"})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except Exception as e:
+            last_error = e
+    raise last_error
+
+
+def clean_text(text: str, max_len: int = 90) -> str:
+    text = html.unescape(str(text or ""))
+    text = re.sub(r"<[^>]+>", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text[:max_len].rstrip() + ("…" if len(text) > max_len else "")
+
+
+def google_news_articles(query: str, max_records: int = 8) -> list[dict]:
+    params = urllib.parse.urlencode({
+        "q": query,
+        "hl": "zh-CN",
+        "gl": "CN",
+        "ceid": "CN:zh-Hans",
+    })
+    url = f"https://news.google.com/rss/search?{params}"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 personal-calendar-free/1.0"})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            xml_text = resp.read().decode("utf-8", errors="ignore")
+        root = ET.fromstring(xml_text)
+    except Exception:
+        return []
+    rows = []
+    seen = set()
+    for item in root.findall(".//item"):
+        title = clean_text(item.findtext("title"), 90)
+        link = str(item.findtext("link") or "")
+        source = clean_text(item.findtext("source") or "Google News", 24)
+        if not title or title in seen:
+            continue
+        seen.add(title)
+        rows.append({"title": title, "url": link, "source": source})
+        if len(rows) >= max_records:
+            break
+    return rows
+
+
+def gdelt_articles(query: str, max_records: int = 8) -> list[dict]:
+    params = urllib.parse.urlencode({
+        "query": query,
+        "mode": "ArtList",
+        "format": "json",
+        "maxrecords": max_records,
+        "sort": "HybridRel",
+        "timespan": "24h",
+    })
+    url = f"https://api.gdeltproject.org/api/v2/doc/doc?{params}"
+    try:
+        data = fetch_json(url, timeout=20, retries=4)
+    except Exception:
+        return []
+    rows = []
+    seen = set()
+    for item in data.get("articles", []) or []:
+        title = clean_text(item.get("title"), 80)
+        link = str(item.get("url") or "")
+        if not title or title in seen:
+            continue
+        seen.add(title)
+        source = clean_text(item.get("sourceCommonName") or item.get("domain") or "", 24)
+        rows.append({"title": title, "url": link, "source": source})
+    return rows
+
+
+def hn_ai_articles(max_records: int = 6) -> list[dict]:
+    cutoff = int((datetime.now(timezone.utc) - timedelta(hours=24)).timestamp())
+    rows = []
+    seen = set()
+    for keyword in ["AI", "OpenAI", "ChatGPT", "Claude", "Gemini", "DeepSeek"]:
+        params = urllib.parse.urlencode({
+            "query": keyword,
+            "tags": "story",
+            "numericFilters": f"created_at_i>{cutoff}",
+            "hitsPerPage": 4,
+        })
+        try:
+            data = fetch_json(f"https://hn.algolia.com/api/v1/search_by_date?{params}", timeout=15, retries=2)
+        except Exception:
+            continue
+        for hit in data.get("hits", []) or []:
+            title = clean_text(hit.get("title") or hit.get("story_title"), 80)
+            if not title or title in seen:
+                continue
+            seen.add(title)
+            rows.append({"title": title, "url": hit.get("url") or hit.get("story_url") or "", "source": "Hacker News"})
+            if len(rows) >= max_records:
+                return rows
+    return rows
+
+
+def tvmaze_updates(max_records: int = 6) -> list[dict]:
+    rows = []
+    seen = set()
+    for d in [TODAY, TODAY - timedelta(days=1)]:
+        try:
+            data = fetch_json(f"https://api.tvmaze.com/schedule/web?date={d.isoformat()}", timeout=15, retries=2)
+        except Exception:
+            continue
+        for item in data or []:
+            show = item.get("_embedded", {}).get("show", {}) if isinstance(item, dict) else {}
+            name = clean_text(show.get("name") or item.get("name"), 60)
+            if not name or name in seen:
+                continue
+            seen.add(name)
+            season = item.get("season")
+            number = item.get("number")
+            episode = clean_text(item.get("name"), 40)
+            label = f"{name} 更新"
+            if season and number:
+                label += f" S{season}E{number}"
+            if episode and episode != name:
+                label += f"：{episode}"
+            rows.append({"title": label, "url": show.get("url") or item.get("url") or "", "source": "TVMaze"})
+            if len(rows) >= max_records:
+                return rows
+    return rows
+
+
+def ai_hotspots() -> list[dict]:
+    # Google News 中文热点 + GDELT + Hacker News，多源兜底，优先当天/过去 24 小时。
+    rows = google_news_articles('AI OR 人工智能 OR 大模型 OR OpenAI OR ChatGPT OR Claude OR Gemini OR DeepSeek when:1d', max_records=8)
+    query = '(AI OR OpenAI OR ChatGPT OR Claude OR Gemini OR DeepSeek)'
+    if len(rows) < 4:
+        rows.extend(gdelt_articles(query, max_records=8 - len(rows)))
+    if len(rows) < 6:
+        rows.extend(hn_ai_articles(max_records=8 - len(rows)))
+    unique = []
+    seen = set()
+    for row in rows:
+        title = row.get("title")
+        if title and title not in seen:
+            unique.append(row)
+            seen.add(title)
+    return unique[:8] or FALLBACK_AI
+
+
+def entertainment_hotspots() -> list[dict]:
+    # 影视优先走中文热点，分别抓电影、电视剧、动漫，避免泛娱乐新闻混进来。
+    rows = []
+    for q in ['电影 新片 上映 when:1d', '电视剧 新剧 热播 when:1d', '动漫 国漫 日漫 更新 when:1d']:
+        rows.extend(google_news_articles(q, max_records=3))
+    query = '(movie OR film OR anime OR Netflix OR Disney OR HBO)'
+    if len(rows) < 4:
+        rows.extend(gdelt_articles(query, max_records=8 - len(rows)))
+    if len(rows) < 6:
+        rows.extend(tvmaze_updates(max_records=8 - len(rows)))
+    unique = []
+    seen = set()
+    for row in rows:
+        title = row.get("title")
+        if title and title not in seen:
+            unique.append(row)
+            seen.add(title)
+    return unique[:8] or FALLBACK_ENTERTAINMENT
 
 
 def weather_code_text(code: int) -> str:
@@ -75,7 +238,7 @@ def load_weather() -> list[dict]:
         "longitude": LON,
         "daily": "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
         "timezone": TZ,
-        "forecast_days": DAYS,
+        "forecast_days": WEATHER_DAYS,
     })
     data = fetch_json(f"https://api.open-meteo.com/v1/forecast?{params}")
     daily = data.get("daily", {})
@@ -85,10 +248,11 @@ def load_weather() -> list[dict]:
         tmax = float(daily.get("temperature_2m_max", [0])[i])
         tmin = float(daily.get("temperature_2m_min", [0])[i])
         rain = daily.get("precipitation_probability_max", [None])[i]
+        tip = clothing_tip(tmax, tmin, code)
         rows.append({
             "date": date.fromisoformat(day),
-            "summary": f"{CITY}天气：{weather_code_text(code)} {tmin:.0f}-{tmax:.0f}℃",
-            "description": f"穿衣推荐：{clothing_tip(tmax, tmin, code)}\n降水概率：{rain if rain is not None else '-'}%\n数据源：Open-Meteo",
+            "summary": f"{CITY}天气：{weather_code_text(code)} {tmin:.0f}-{tmax:.0f}℃｜穿衣：{tip}",
+            "description": f"天气：{weather_code_text(code)}\n温度：{tmin:.0f}-{tmax:.0f}℃\n穿衣推荐：{tip}\n降水概率：{rain if rain is not None else '-'}%\n数据源：Open-Meteo",
         })
     return rows
 
@@ -142,17 +306,33 @@ def holiday_events(start: date, days: int) -> list[str]:
     return events
 
 
-def recurring_content_events(start: date, days: int) -> list[str]:
-    events = []
-    for i in range(days):
-        d = start + timedelta(days=i)
-        if d.weekday() in {0, 2, 4}:
-            topic = AI_TOPICS[(i // 2) % len(AI_TOPICS)]
-            events.append(vevent(d, f"AI热点提醒：{topic}", "适合整理成小红书/抖音选题，优先保留新手可实操内容。", 10))
-        if d.weekday() in {1, 5}:
-            topic = MOVIE_TOPICS[(i // 3) % len(MOVIE_TOPICS)]
-            events.append(vevent(d, f"影视更新提醒：{topic}", "检查平台热榜和新上线内容，只记录值得做内容的更新。", 20))
-    return events
+def article_lines(items: list[dict], limit: int = 6) -> str:
+    lines = []
+    for idx, item in enumerate(items[:limit], 1):
+        source = f"（{item.get('source')}）" if item.get("source") else ""
+        url = f"\n   {item.get('url')}" if item.get("url") else ""
+        lines.append(f"{idx}. {item.get('title')}{source}{url}")
+    return "\n".join(lines)
+
+
+def today_hotspot_events() -> list[str]:
+    ai_items = ai_hotspots()
+    video_items = entertainment_hotspots()
+    generated = datetime.now().strftime("%Y-%m-%d %H:%M")
+    return [
+        vevent(
+            TODAY,
+            f"AI 24小时热点：{clean_text(ai_items[0].get('title'), 34)}",
+            f"过去24小时 AI 热点推荐，生成时间：{generated}\n\n{article_lines(ai_items)}",
+            9,
+        ),
+        vevent(
+            TODAY,
+            f"影视24小时推荐：{clean_text(video_items[0].get('title'), 34)}",
+            f"过去24小时影视/电视剧/电影/动漫热点推荐，生成时间：{generated}\n\n{article_lines(video_items)}",
+            20,
+        ),
+    ]
 
 
 def build() -> str:
@@ -163,7 +343,7 @@ def build() -> str:
     except Exception as e:
         events.append(vevent(TODAY, "天气更新失败", f"Open-Meteo 拉取失败：{e}", 7))
     events.extend(holiday_events(TODAY, 120))
-    events.extend(recurring_content_events(TODAY, DAYS))
+    events.extend(today_hotspot_events())
     body = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
