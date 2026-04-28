@@ -49,9 +49,48 @@ def fetch_json(url: str, timeout: int = 15, retries: int = 3) -> dict:
 
 def clean_text(text: str, max_len: int = 90) -> str:
     text = html.unescape(str(text or ""))
+    text = re.sub(r"<script[\s\S]*?</script>", "", text, flags=re.I)
+    text = re.sub(r"<style[\s\S]*?</style>", "", text, flags=re.I)
     text = re.sub(r"<[^>]+>", "", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text[:max_len].rstrip() + ("…" if len(text) > max_len else "")
+
+
+def fetch_page_summary(url: str, title: str = "", max_len: int = 150) -> str:
+    if not url:
+        return ""
+    # Google News 中转页经常不直接给正文，RSS snippet 会作为兜底。
+    if "news.google.com/rss/articles" in url:
+        return ""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 personal-calendar-free/1.0"})
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            ctype = str(resp.headers.get("content-type") or "").lower()
+            if "text/html" not in ctype and "application/xhtml" not in ctype:
+                return ""
+            raw = resp.read(350_000).decode("utf-8", errors="ignore")
+    except Exception:
+        return ""
+
+    meta_patterns = [
+        r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']description["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:description["\']',
+    ]
+    for pat in meta_patterns:
+        m = re.search(pat, raw, flags=re.I)
+        if m:
+            summary = clean_text(m.group(1), max_len)
+            if summary and summary not in title:
+                return summary
+
+    paragraphs = re.findall(r"<p[^>]*>([\s\S]*?)</p>", raw, flags=re.I)
+    cleaned = [clean_text(p, 220) for p in paragraphs]
+    cleaned = [p for p in cleaned if len(p) >= 35 and p not in title]
+    if cleaned:
+        return clean_text(" ".join(cleaned[:2]), max_len)
+    return ""
 
 
 def google_news_articles(query: str, max_records: int = 8) -> list[dict]:
@@ -75,10 +114,11 @@ def google_news_articles(query: str, max_records: int = 8) -> list[dict]:
         title = clean_text(item.findtext("title"), 90)
         link = str(item.findtext("link") or "")
         source = clean_text(item.findtext("source") or "Google News", 24)
+        snippet = clean_text(item.findtext("description"), 150)
         if not title or title in seen:
             continue
         seen.add(title)
-        rows.append({"title": title, "url": link, "source": source})
+        rows.append({"title": title, "url": link, "source": source, "summary": snippet})
         if len(rows) >= max_records:
             break
     return rows
@@ -107,7 +147,8 @@ def gdelt_articles(query: str, max_records: int = 8) -> list[dict]:
             continue
         seen.add(title)
         source = clean_text(item.get("sourceCommonName") or item.get("domain") or "", 24)
-        rows.append({"title": title, "url": link, "source": source})
+        snippet = clean_text(item.get("seendate") or item.get("language") or "", 80)
+        rows.append({"title": title, "url": link, "source": source, "summary": snippet})
     return rows
 
 
@@ -131,7 +172,10 @@ def hn_ai_articles(max_records: int = 6) -> list[dict]:
             if not title or title in seen:
                 continue
             seen.add(title)
-            rows.append({"title": title, "url": hit.get("url") or hit.get("story_url") or "", "source": "Hacker News"})
+            points = hit.get("points")
+            comments = hit.get("num_comments")
+            snippet = f"Hacker News 讨论热度：{points or 0} points，{comments or 0} comments"
+            rows.append({"title": title, "url": hit.get("url") or hit.get("story_url") or "", "source": "Hacker News", "summary": snippet})
             if len(rows) >= max_records:
                 return rows
     return rows
@@ -159,7 +203,16 @@ def tvmaze_updates(max_records: int = 6) -> list[dict]:
                 label += f" S{season}E{number}"
             if episode and episode != name:
                 label += f"：{episode}"
-            rows.append({"title": label, "url": show.get("url") or item.get("url") or "", "source": "TVMaze"})
+            genres = "、".join(show.get("genres") or [])
+            network = (show.get("webChannel") or show.get("network") or {}).get("name") if isinstance(show, dict) else ""
+            snippet_parts = []
+            if genres:
+                snippet_parts.append(f"类型：{genres}")
+            if network:
+                snippet_parts.append(f"平台：{network}")
+            if item.get("airdate"):
+                snippet_parts.append(f"更新日期：{item.get('airdate')}")
+            rows.append({"title": label, "url": show.get("url") or item.get("url") or "", "source": "TVMaze", "summary": "；".join(snippet_parts)})
             if len(rows) >= max_records:
                 return rows
     return rows
@@ -183,11 +236,15 @@ def ai_hotspots() -> list[dict]:
     return unique[:8] or FALLBACK_AI
 
 
+def has_cjk(text: str) -> bool:
+    return bool(re.search(r"[\u4e00-\u9fff]", str(text or "")))
+
+
 def entertainment_hotspots() -> list[dict]:
     # 影视优先走中文热点，分别抓电影、电视剧、动漫，避免泛娱乐新闻混进来。
     rows = []
     for q in ['电影 新片 上映 when:1d', '电视剧 新剧 热播 when:1d', '动漫 国漫 日漫 更新 when:1d']:
-        rows.extend(google_news_articles(q, max_records=3))
+        rows.extend([r for r in google_news_articles(q, max_records=5) if has_cjk(r.get("title"))][:3])
     query = '(movie OR film OR anime OR Netflix OR Disney OR HBO)'
     if len(rows) < 4:
         rows.extend(gdelt_articles(query, max_records=8 - len(rows)))
@@ -306,13 +363,40 @@ def holiday_events(start: date, days: int) -> list[str]:
     return events
 
 
-def article_lines(items: list[dict], limit: int = 6) -> str:
+def title_takeaway(title: str, source: str = "", max_len: int = 150) -> str:
+    text = clean_text(title, max_len)
+    if source:
+        text = re.sub(rf"\s*-\s*{re.escape(source)}\s*$", "", text).strip()
+    if not text.endswith(("。", "！", "？", ".", "!", "?")):
+        text += "。"
+    return text
+
+
+def enrich_article_summaries(items: list[dict], max_items: int = 5) -> list[dict]:
+    enriched = []
+    for item in items[:max_items]:
+        row = dict(item)
+        title = row.get("title", "")
+        source = row.get("source", "")
+        summary = clean_text(row.get("summary"), 150)
+        # RSS 自带摘要不够可读时，再尝试读取原网页 meta description / 正文段落。
+        if (not summary or len(summary) < 35 or summary.lower() in {"english", "chinese"}) and row.get("url"):
+            summary = fetch_page_summary(row.get("url"), title, 150)
+        # 仍然拿不到正文时，不展示“失败”，直接把标题改写成可读看点，避免日历里堆网址。
+        if not summary or summary == title or summary in title:
+            summary = title_takeaway(title, source, 150)
+        row["summary"] = summary
+        enriched.append(row)
+    return enriched
+
+
+def article_lines(items: list[dict], limit: int = 5) -> str:
     lines = []
-    for idx, item in enumerate(items[:limit], 1):
-        source = f"（{item.get('source')}）" if item.get("source") else ""
-        url = f"\n   {item.get('url')}" if item.get("url") else ""
-        lines.append(f"{idx}. {item.get('title')}{source}{url}")
-    return "\n".join(lines)
+    for idx, item in enumerate(enrich_article_summaries(items, limit), 1):
+        source = f"｜来源：{item.get('source')}" if item.get("source") else ""
+        # Apple Calendar 里长链接很影响阅读，默认不堆 URL，只展示可读摘要。
+        lines.append(f"{idx}. {item.get('title')}\n   看点：{item.get('summary')}{source}")
+    return "\n\n".join(lines)
 
 
 def today_hotspot_events() -> list[str]:
