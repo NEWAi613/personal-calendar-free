@@ -539,10 +539,11 @@ def load_weather() -> list[dict]:
         tmin = float(daily.get("temperature_2m_min", [0])[i])
         rain = daily.get("precipitation_probability_max", [None])[i]
         tip = clothing_tip(tmax, tmin, code)
+        weather_text = weather_code_text(code)
         rows.append({
             "date": date.fromisoformat(day),
-            "summary": f"{CITY}天气：{weather_code_text(code)} {tmin:.0f}-{tmax:.0f}℃｜穿衣：{tip}",
-            "description": f"天气：{weather_code_text(code)}\n温度：{tmin:.0f}-{tmax:.0f}℃\n穿衣推荐：{tip}\n降水概率：{rain if rain is not None else '-'}%\n数据源：Open-Meteo",
+            "summary": f"{weather_text} {tmin:.0f}-{tmax:.0f}℃｜穿衣：{tip}",
+            "description": f"天气：{weather_text}\n温度：{tmin:.0f}-{tmax:.0f}℃\n穿衣推荐：{tip}\n降水概率：{rain if rain is not None else '-'}%\n数据源：Open-Meteo",
         })
     return rows
 
@@ -740,9 +741,9 @@ def build() -> str:
     events = []
     try:
         for row in load_weather():
-            events.append(vevent(row["date"], row["summary"], row["description"], 7))
+            events.append(vevent(row["date"], row["summary"], row["description"], all_day=True))
     except Exception as e:
-        events.append(vevent(TODAY, "天气更新失败", f"Open-Meteo 拉取失败：{e}", 7))
+        events.append(vevent(TODAY, "天气更新失败", f"Open-Meteo 拉取失败：{e}", all_day=True))
     events.extend(holiday_events(TODAY, 365))
     events.extend(solar_term_events(TODAY, 365))
     events.extend(today_hotspot_events())
