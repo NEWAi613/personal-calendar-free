@@ -27,6 +27,48 @@ CN_HOLIDAYS_2026 = {
     "2026-09-25": "中秋节",
 }
 
+SOLAR_TERMS_2026 = {
+    "2026-01-05": "小寒", "2026-01-20": "大寒",
+    "2026-02-04": "立春", "2026-02-18": "雨水",
+    "2026-03-05": "惊蛰", "2026-03-20": "春分",
+    "2026-04-04": "清明", "2026-04-20": "谷雨",
+    "2026-05-05": "立夏", "2026-05-21": "小满",
+    "2026-06-05": "芒种", "2026-06-21": "夏至",
+    "2026-07-07": "小暑", "2026-07-23": "大暑",
+    "2026-08-07": "立秋", "2026-08-23": "处暑",
+    "2026-09-07": "白露", "2026-09-23": "秋分",
+    "2026-10-08": "寒露", "2026-10-23": "霜降",
+    "2026-11-07": "立冬", "2026-11-22": "小雪",
+    "2026-12-07": "大雪", "2026-12-22": "冬至",
+}
+
+SOLAR_TERM_TIPS = {
+    "立春": "春季开始，适合关注换季穿衣和作息调整。",
+    "雨水": "降水逐渐增多，出门留意雨具。",
+    "惊蛰": "天气回暖，昼夜温差仍明显。",
+    "春分": "昼夜接近等长，适合安排户外活动。",
+    "清明": "春和景明，也常伴随降雨。",
+    "谷雨": "雨水增多，空气湿度上升。",
+    "立夏": "夏季开始，注意防晒和补水。",
+    "小满": "气温升高，闷热感增强。",
+    "芒种": "天气更热，雨水也更频繁。",
+    "夏至": "白昼最长，注意防暑。",
+    "小暑": "进入炎热阶段，减少暴晒。",
+    "大暑": "一年中最热阶段之一，防暑降温。",
+    "立秋": "秋季开始，但暑热可能还在。",
+    "处暑": "暑热逐渐退去，早晚开始转凉。",
+    "白露": "早晚凉意明显，注意添衣。",
+    "秋分": "昼夜接近等长，秋意更明显。",
+    "寒露": "气温继续下降，注意保暖。",
+    "霜降": "秋末冬初，早晚更冷。",
+    "立冬": "冬季开始，注意防寒。",
+    "小雪": "气温降低，北方可能出现降雪。",
+    "大雪": "降雪概率增加，注意出行安全。",
+    "冬至": "白昼最短，天气寒冷。",
+    "小寒": "进入寒冷阶段，注意保暖。",
+    "大寒": "一年中最冷阶段之一，重点防寒。",
+}
+
 FALLBACK_AI = [
     {"title": "AI 热点暂未拉取到实时新闻，建议关注 OpenAI、Claude、Gemini、DeepSeek、国内大模型更新", "url": ""},
 ]
@@ -339,20 +381,31 @@ def uid(seed: str) -> str:
     return hashlib.sha1(seed.encode("utf-8")).hexdigest() + "@personal-calendar-free"
 
 
-def vevent(day: date, summary: str, description: str, hour: int = 9) -> str:
-    start = datetime(day.year, day.month, day.day, hour, 0, 0)
-    end = start + timedelta(minutes=30)
+def vevent(day: date, summary: str, description: str, hour: int = 9, all_day: bool = False) -> str:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lines = [
         "BEGIN:VEVENT",
         f"UID:{uid(day.isoformat() + summary)}",
         f"DTSTAMP:{stamp}",
-        f"DTSTART;TZID={TZ}:{start.strftime('%Y%m%dT%H%M%S')}",
-        f"DTEND;TZID={TZ}:{end.strftime('%Y%m%dT%H%M%S')}",
+    ]
+    if all_day:
+        end_day = day + timedelta(days=1)
+        lines.extend([
+            f"DTSTART;VALUE=DATE:{day.strftime('%Y%m%d')}",
+            f"DTEND;VALUE=DATE:{end_day.strftime('%Y%m%d')}",
+        ])
+    else:
+        start = datetime(day.year, day.month, day.day, hour, 0, 0)
+        end = start + timedelta(minutes=30)
+        lines.extend([
+            f"DTSTART;TZID={TZ}:{start.strftime('%Y%m%dT%H%M%S')}",
+            f"DTEND;TZID={TZ}:{end.strftime('%Y%m%dT%H%M%S')}",
+        ])
+    lines.extend([
         f"SUMMARY:{esc(summary)}",
         f"DESCRIPTION:{esc(description)}",
         "END:VEVENT",
-    ]
+    ])
     return "\r\n".join(fold(x) for x in lines)
 
 
@@ -362,17 +415,72 @@ def holiday_events(start: date, days: int) -> list[str]:
         d = start + timedelta(days=i)
         name = CN_HOLIDAYS_FIXED.get(d.strftime("%m-%d")) or CN_HOLIDAYS_2026.get(d.isoformat())
         if name:
-            events.append(vevent(d, f"节假日：{name}", "中国节假日提醒", 8))
+            events.append(vevent(d, f"节假日：{name}", "中国节假日，全天显示。", all_day=True))
     return events
 
 
-def title_takeaway(title: str, source: str = "", max_len: int = 150) -> str:
-    text = clean_text(title, max_len)
+def solar_term_events(start: date, days: int) -> list[str]:
+    events = []
+    end = start + timedelta(days=days)
+    for raw_day, name in SOLAR_TERMS_2026.items():
+        d = date.fromisoformat(raw_day)
+        if start <= d < end:
+            tip = SOLAR_TERM_TIPS.get(name, "中国传统二十四节气。")
+            events.append(vevent(d, f"节气：{name}", f"二十四节气：{name}\n{tip}\n全天显示。", all_day=True))
+    return events
+
+
+def strip_source_from_title(title: str, source: str = "") -> str:
+    text = clean_text(title, 160)
     if source:
         text = re.sub(rf"\s*-\s*{re.escape(source)}\s*$", "", text).strip()
-    if not text.endswith(("。", "！", "？", ".", "!", "?")):
-        text += "。"
+    text = re.sub(r"\s*-\s*(手机新浪网|新浪财经|搜狐网|腾讯网|网易|央视网|观察者网|澎湃新闻|证券时报|thepaper\.cn|guancha\.cn)\s*$", "", text).strip()
     return text
+
+
+def split_title_parts(title: str) -> list[str]:
+    title = strip_source_from_title(title)
+    parts = re.split(r"[，,；;：:。！？!？——]|\s+-\s+", title)
+    return [clean_text(p, 80) for p in parts if len(clean_text(p, 80)) >= 3]
+
+
+def infer_content_type(title: str) -> str:
+    t = str(title)
+    if any(k in t for k in ["电影", "新片", "票房", "上映", "五一档", "院线"]):
+        return "电影"
+    if any(k in t for k in ["电视剧", "新剧", "热播剧", "追剧", "开播", "收官", "剧集"]):
+        return "电视剧"
+    if any(k in t for k in ["动漫", "动画", "国漫", "日漫", "番剧", "漫画"]):
+        return "动漫"
+    if any(k in t for k in ["AI", "人工智能", "大模型", "DeepSeek", "OpenAI", "Claude", "Gemini", "ChatGPT"]):
+        return "AI"
+    return "热点"
+
+
+def title_takeaway(title: str, source: str = "", max_len: int = 180) -> str:
+    core = strip_source_from_title(title, source)
+    parts = split_title_parts(core)
+    ctype = infer_content_type(core)
+    if ctype == "电影":
+        prefix = "电影信息："
+        advice = "适合快速判断近期院线/平台新片和档期热度。"
+    elif ctype == "电视剧":
+        prefix = "剧集信息："
+        advice = "适合快速判断今天有哪些剧在更新、开播或收官。"
+    elif ctype == "动漫":
+        prefix = "动漫信息："
+        advice = "适合快速判断国漫/日漫更新和热度变化。"
+    elif ctype == "AI":
+        prefix = "AI动向："
+        advice = "适合关注模型能力、产品变化和内容选题机会。"
+    else:
+        prefix = "热点信息："
+        advice = "适合先判断是否值得继续点开。"
+    if len(parts) >= 2:
+        text = f"{prefix}{parts[0]}；关键信息：{'；'.join(parts[1:3])}。{advice}"
+    else:
+        text = f"{prefix}{core}。{advice}"
+    return clean_text(text, max_len)
 
 
 def enrich_article_summaries(items: list[dict], max_items: int = 5) -> list[dict]:
@@ -385,10 +493,12 @@ def enrich_article_summaries(items: list[dict], max_items: int = 5) -> list[dict
         # RSS 自带摘要不够可读时，再尝试读取原网页 meta description / 正文段落。
         if (not summary or len(summary) < 35 or summary.lower() in {"english", "chinese"}) and row.get("url"):
             summary = fetch_page_summary(row.get("url"), title, 150)
-        # 仍然拿不到正文时，不展示“失败”，直接把标题改写成可读看点，避免日历里堆网址。
-        if not summary or summary == title or summary in title:
-            summary = title_takeaway(title, source, 150)
+        title_core = strip_source_from_title(title, source)
+        # 如果摘要只是把标题重复一遍，就改成结构化信息提炼。
+        if not summary or summary == title or summary in title or title_core in summary or summary in title_core:
+            summary = title_takeaway(title, source, 180)
         row["summary"] = summary
+        row["type"] = infer_content_type(title)
         enriched.append(row)
     return enriched
 
@@ -397,8 +507,10 @@ def article_lines(items: list[dict], limit: int = 5) -> str:
     lines = []
     for idx, item in enumerate(enrich_article_summaries(items, limit), 1):
         source = f"｜来源：{item.get('source')}" if item.get("source") else ""
+        ctype = item.get("type") or infer_content_type(item.get("title", ""))
+        title = strip_source_from_title(item.get("title", ""), item.get("source", ""))
         # Apple Calendar 里长链接很影响阅读，默认不堆 URL，只展示可读摘要。
-        lines.append(f"{idx}. {item.get('title')}\n   看点：{item.get('summary')}{source}")
+        lines.append(f"{idx}. [{ctype}] {title}\n   提炼：{item.get('summary')}{source}")
     return "\n\n".join(lines)
 
 
@@ -429,7 +541,8 @@ def build() -> str:
             events.append(vevent(row["date"], row["summary"], row["description"], 7))
     except Exception as e:
         events.append(vevent(TODAY, "天气更新失败", f"Open-Meteo 拉取失败：{e}", 7))
-    events.extend(holiday_events(TODAY, 120))
+    events.extend(holiday_events(TODAY, 365))
+    events.extend(solar_term_events(TODAY, 365))
     events.extend(today_hotspot_events())
     body = [
         "BEGIN:VCALENDAR",
