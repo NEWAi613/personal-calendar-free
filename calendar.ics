@@ -7,7 +7,7 @@ X-WR-CALNAME:北京海淀生活提醒
 X-WR-TIMEZONE:Asia/Shanghai
 BEGIN:VEVENT
 UID:aa64a94407224bfa7633a5a820873ef1592a4193@personal-calendar-free
-DTSTAMP:20260428T083726Z
+DTSTAMP:20260428T090217Z
 DTSTART;TZID=Asia/Shanghai:20260428T070000
 DTEND;TZID=Asia/Shanghai:20260428T073000
 SUMMARY:北京海淀天气：小毛毛雨 10-21℃｜穿衣：卫衣/薄
@@ -18,7 +18,7 @@ DESCRIPTION:天气：小毛毛雨\n温度：10-21℃\n穿衣推荐：卫
 END:VEVENT
 BEGIN:VEVENT
 UID:26321b65731f5d2f21d22da16a5903bda4530c81@personal-calendar-free
-DTSTAMP:20260428T083726Z
+DTSTAMP:20260428T090217Z
 DTSTART;TZID=Asia/Shanghai:20260429T070000
 DTEND;TZID=Asia/Shanghai:20260429T073000
 SUMMARY:北京海淀天气：晴 8-25℃｜穿衣：长袖或薄外套，
@@ -29,7 +29,7 @@ DESCRIPTION:天气：晴\n温度：8-25℃\n穿衣推荐：长袖或薄
 END:VEVENT
 BEGIN:VEVENT
 UID:d41b45f5e0c6944f9c890340526ad489fca0661a@personal-calendar-free
-DTSTAMP:20260428T083726Z
+DTSTAMP:20260428T090217Z
 DTSTART;TZID=Asia/Shanghai:20260430T070000
 DTEND;TZID=Asia/Shanghai:20260430T073000
 SUMMARY:北京海淀天气：阴 10-27℃｜穿衣：长袖或薄外套
@@ -40,7 +40,7 @@ DESCRIPTION:天气：阴\n温度：10-27℃\n穿衣推荐：长袖或薄
 END:VEVENT
 BEGIN:VEVENT
 UID:e724c7477db7e28a7c93c23f799c9adadcfad7fc@personal-calendar-free
-DTSTAMP:20260428T083726Z
+DTSTAMP:20260428T090217Z
 DTSTART;TZID=Asia/Shanghai:20260501T070000
 DTEND;TZID=Asia/Shanghai:20260501T073000
 SUMMARY:北京海淀天气：阴 14-25℃｜穿衣：长袖或薄外套
@@ -51,7 +51,7 @@ DESCRIPTION:天气：阴\n温度：14-25℃\n穿衣推荐：长袖或薄
 END:VEVENT
 BEGIN:VEVENT
 UID:821a85133845111d3a1821d78a64f01464d29065@personal-calendar-free
-DTSTAMP:20260428T083726Z
+DTSTAMP:20260428T090217Z
 DTSTART;TZID=Asia/Shanghai:20260502T070000
 DTEND;TZID=Asia/Shanghai:20260502T073000
 SUMMARY:北京海淀天气：阴 15-28℃｜穿衣：短袖/轻薄透气
@@ -62,7 +62,7 @@ DESCRIPTION:天气：阴\n温度：15-28℃\n穿衣推荐：短袖/轻薄
 END:VEVENT
 BEGIN:VEVENT
 UID:4446fad496b688d884da1c3d2bf35d314f266aac@personal-calendar-free
-DTSTAMP:20260428T083726Z
+DTSTAMP:20260428T090217Z
 DTSTART;TZID=Asia/Shanghai:20260503T070000
 DTEND;TZID=Asia/Shanghai:20260503T073000
 SUMMARY:北京海淀天气：大部晴朗 14-26℃｜穿衣：长袖或
@@ -73,7 +73,7 @@ DESCRIPTION:天气：大部晴朗\n温度：14-26℃\n穿衣推荐：长
 END:VEVENT
 BEGIN:VEVENT
 UID:7910649db36f0ba26b4a7bd51ec89a65fac2965d@personal-calendar-free
-DTSTAMP:20260428T083726Z
+DTSTAMP:20260428T090217Z
 DTSTART;TZID=Asia/Shanghai:20260504T070000
 DTEND;TZID=Asia/Shanghai:20260504T073000
 SUMMARY:北京海淀天气：晴 13-28℃｜穿衣：长袖或薄外套
@@ -83,248 +83,367 @@ DESCRIPTION:天气：晴\n温度：13-28℃\n穿衣推荐：长袖或薄
  ：Open-Meteo
 END:VEVENT
 BEGIN:VEVENT
-UID:14ec1fb17842af582e90877a47d5006145d96646@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:88c6dcc06b0890a46716c79aefda986cd1c0bcf9@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260501
 DTEND;VALUE=DATE:20260502
-SUMMARY:节假日：劳动节
-DESCRIPTION:中国节假日，全天显示。
+SUMMARY:劳动节
+DESCRIPTION:中国大陆常见节日：劳动节
 END:VEVENT
 BEGIN:VEVENT
-UID:34e6270928089d57df7baaa0564273dba41539e3@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:bf363d66bfb27011c9f4f4d8d64fb3ce1d4c4d15@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260504
+DTEND;VALUE=DATE:20260505
+SUMMARY:青年节
+DESCRIPTION:中国大陆常见节日：青年节
+END:VEVENT
+BEGIN:VEVENT
+UID:5177902fbd3c99359df63fac4c5dbcda276ef111@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260601
+DTEND;VALUE=DATE:20260602
+SUMMARY:儿童节
+DESCRIPTION:中国大陆常见节日：儿童节
+END:VEVENT
+BEGIN:VEVENT
+UID:49cb1ec83ae735da4d351153eefe1ccce2b1b6d6@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260619
 DTEND;VALUE=DATE:20260620
-SUMMARY:节假日：端午节
-DESCRIPTION:中国节假日，全天显示。
+SUMMARY:端午节
+DESCRIPTION:中国大陆常见节日：端午节
 END:VEVENT
 BEGIN:VEVENT
-UID:7fc71f1f2ff50ebbe888a46083729fded6d20fb9@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:a0c069dd4c9a23a1c6b981fbd26e0b6ce1958301@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260701
+DTEND;VALUE=DATE:20260702
+SUMMARY:建党节
+DESCRIPTION:中国大陆常见节日：建党节
+END:VEVENT
+BEGIN:VEVENT
+UID:5c9bd502fa6f43b289ac9be07d591f50008fec84@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260801
+DTEND;VALUE=DATE:20260802
+SUMMARY:建军节
+DESCRIPTION:中国大陆常见节日：建军节
+END:VEVENT
+BEGIN:VEVENT
+UID:07f0dc9b510655b1c74d79fadfa4487eb467938f@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260819
+DTEND;VALUE=DATE:20260820
+SUMMARY:七夕节
+DESCRIPTION:中国大陆常见节日：七夕节
+END:VEVENT
+BEGIN:VEVENT
+UID:b3b35919b0f85550371d3c6c34b93e666c419e4c@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260827
+DTEND;VALUE=DATE:20260828
+SUMMARY:中元节
+DESCRIPTION:中国大陆常见节日：中元节
+END:VEVENT
+BEGIN:VEVENT
+UID:048ea3c1f5c593ea8d555215cea191e462f4d946@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260903
+DTEND;VALUE=DATE:20260904
+SUMMARY:中国人民抗日战争胜利纪念日
+DESCRIPTION:中国大陆常见节日：中国人民抗日战争胜利纪
+ 念日
+END:VEVENT
+BEGIN:VEVENT
+UID:f59507c630b5bf8465be090683ae9b0402e116a7@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260910
+DTEND;VALUE=DATE:20260911
+SUMMARY:教师节
+DESCRIPTION:中国大陆常见节日：教师节
+END:VEVENT
+BEGIN:VEVENT
+UID:ff235b9c7f284b64acca1c83b4d59ece92181816@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
-SUMMARY:节假日：中秋节
-DESCRIPTION:中国节假日，全天显示。
+SUMMARY:中秋节
+DESCRIPTION:中国大陆常见节日：中秋节
 END:VEVENT
 BEGIN:VEVENT
-UID:39c7472496308e12a14ce59c22c30aa2b966d3f0@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:7b303ce325693698909a0578d059905b2240db95@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:烈士纪念日
+DESCRIPTION:中国大陆常见节日：烈士纪念日
+END:VEVENT
+BEGIN:VEVENT
+UID:d1a3902a351b09add6e7d3c82034d7adae8f2e95@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
-SUMMARY:节假日：国庆节
-DESCRIPTION:中国节假日，全天显示。
+SUMMARY:国庆节
+DESCRIPTION:中国大陆常见节日：国庆节
 END:VEVENT
 BEGIN:VEVENT
-UID:080430051728c42c9fc2ded6a6c4c38126508669@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:00f19f5f44da282fabf65190e384db99ecd56cec@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:重阳节
+DESCRIPTION:中国大陆常见节日：重阳节
+END:VEVENT
+BEGIN:VEVENT
+UID:2ae0c6e177846fa8de700dfc9d19449d3cccd363@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:记者节
+DESCRIPTION:中国大陆常见节日：记者节
+END:VEVENT
+BEGIN:VEVENT
+UID:3003c0e95b301c54c02bb051237dbb4b4e36de00@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:国家宪法日
+DESCRIPTION:中国大陆常见节日：国家宪法日
+END:VEVENT
+BEGIN:VEVENT
+UID:d92f02df3b9ce66b58edcde0632d8dbca66aa4f3@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:南京大屠杀死难者国家公祭日
+DESCRIPTION:中国大陆常见节日：南京大屠杀死难者国家公
+ 祭日
+END:VEVENT
+BEGIN:VEVENT
+UID:6edb7976fb68a0d9158c35e66bd47b8d3d62c9d0@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:澳门回归纪念日
+DESCRIPTION:中国大陆常见节日：澳门回归纪念日
+END:VEVENT
+BEGIN:VEVENT
+UID:7b328bca653ef998de254063d3603e571e1eede7@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
-SUMMARY:节假日：元旦
-DESCRIPTION:中国节假日，全天显示。
+SUMMARY:元旦
+DESCRIPTION:中国大陆常见节日：元旦
 END:VEVENT
 BEGIN:VEVENT
-UID:5e9e6c8213d027f022ccab92450c95253fcc17c0@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:f4dd49bbf5253da928ab9a4f67ffe86cd450aded@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270309
+SUMMARY:妇女节
+DESCRIPTION:中国大陆常见节日：妇女节
+END:VEVENT
+BEGIN:VEVENT
+UID:ee093d972e566691e83dba7b69ee1e1cba88582d@personal-calendar-free
+DTSTAMP:20260428T090217Z
+DTSTART;VALUE=DATE:20270312
+DTEND;VALUE=DATE:20270313
+SUMMARY:植树节
+DESCRIPTION:中国大陆常见节日：植树节
+END:VEVENT
+BEGIN:VEVENT
+UID:7190624242d6accfd42cc4144cef82b8b26d97a6@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260505
 DTEND;VALUE=DATE:20260506
-SUMMARY:节气：立夏
-DESCRIPTION:二十四节气：立夏\n夏季开始，注意防晒和补
- 水。\n全天显示。
+SUMMARY:立夏
+DESCRIPTION:二十四节气：立夏\n典故：立夏表示夏季开始
+ ，民间有称人、吃立夏蛋等习俗。
 END:VEVENT
 BEGIN:VEVENT
-UID:7cbac4ddcee8e5a840d817d0960fb55abfe6face@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:d327e400ff2dc0c8b3a897c400a51b5e981a1da8@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260521
 DTEND;VALUE=DATE:20260522
-SUMMARY:节气：小满
-DESCRIPTION:二十四节气：小满\n气温升高，闷热感增强。\n
- 全天显示。
+SUMMARY:小满
+DESCRIPTION:二十四节气：小满\n典故：小满指麦类等夏熟
+ 作物籽粒渐满但未全满，讲究“满而不盈”。
 END:VEVENT
 BEGIN:VEVENT
-UID:bace66631e5e24c735ab9023af1cafba51e1986e@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:d7bac6e46b1e0431c662d65515cab474bd7cf56b@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260605
 DTEND;VALUE=DATE:20260606
-SUMMARY:节气：芒种
-DESCRIPTION:二十四节气：芒种\n天气更热，雨水也更频繁
- 。\n全天显示。
+SUMMARY:芒种
+DESCRIPTION:二十四节气：芒种\n典故：芒种意为有芒作物
+ 可收、有芒作物可种，是农忙节气。
 END:VEVENT
 BEGIN:VEVENT
-UID:b5bc7e56c2dc4fae8aa9ed528c3915df9bb1d348@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:de892676004e565261c0db4cb407818df04b5f87@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260621
 DTEND;VALUE=DATE:20260622
-SUMMARY:节气：夏至
-DESCRIPTION:二十四节气：夏至\n白昼最长，注意防暑。\n全
- 天显示。
+SUMMARY:夏至
+DESCRIPTION:二十四节气：夏至\n典故：夏至白昼最长，古
+ 代既祭地，也有吃面、消夏的习俗。
 END:VEVENT
 BEGIN:VEVENT
-UID:be7e26cd1679d1423c6bc5e15969f4b63fae56a2@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:5a572fdde59353c0dcd8da9100743382a877905c@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260707
 DTEND;VALUE=DATE:20260708
-SUMMARY:节气：小暑
-DESCRIPTION:二十四节气：小暑\n进入炎热阶段，减少暴晒
- 。\n全天显示。
+SUMMARY:小暑
+DESCRIPTION:二十四节气：小暑\n典故：小暑意为暑气初盛
+ ，民间常有食新、晒伏等习俗。
 END:VEVENT
 BEGIN:VEVENT
-UID:d130a0dba593b1a46aa3e326ec41186aa5a92364@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:ca250cce040a9ad6f22205441417e93a61cb238a@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260723
 DTEND;VALUE=DATE:20260724
-SUMMARY:节气：大暑
-DESCRIPTION:二十四节气：大暑\n一年中最热阶段之一，防
- 暑降温。\n全天显示。
+SUMMARY:大暑
+DESCRIPTION:二十四节气：大暑\n典故：大暑是一年暑热最
+ 盛之时，民间讲究饮伏茶、晒伏姜。
 END:VEVENT
 BEGIN:VEVENT
-UID:646c9fc3d8241a14bb12539473a3f485a2c5d6d7@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:e228ec7a29e15c4947212c0fab6a7806a6fa5e01@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260807
 DTEND;VALUE=DATE:20260808
-SUMMARY:节气：立秋
-DESCRIPTION:二十四节气：立秋\n秋季开始，但暑热可能还
- 在。\n全天显示。
+SUMMARY:立秋
+DESCRIPTION:二十四节气：立秋\n典故：立秋标志秋季开启
+ ，民间有贴秋膘、啃秋等习俗。
 END:VEVENT
 BEGIN:VEVENT
-UID:e1dec132f3e055d99ff9b8b2d50f3cafab2260e0@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:07915847421f2e182be306382fb57817f66c9a2e@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260823
 DTEND;VALUE=DATE:20260824
-SUMMARY:节气：处暑
-DESCRIPTION:二十四节气：处暑\n暑热逐渐退去，早晚开始
- 转凉。\n全天显示。
+SUMMARY:处暑
+DESCRIPTION:二十四节气：处暑\n典故：处暑意为暑气到此
+ 而止，民间有出游迎秋、放河灯等传统。
 END:VEVENT
 BEGIN:VEVENT
-UID:a63cd5174569054974b8d55e3d5da49629626b58@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:a836d2d89e00da19feadda94cfb213748fcf0b84@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260907
 DTEND;VALUE=DATE:20260908
-SUMMARY:节气：白露
-DESCRIPTION:二十四节气：白露\n早晚凉意明显，注意添衣
- 。\n全天显示。
+SUMMARY:白露
+DESCRIPTION:二十四节气：白露\n典故：白露因夜间水汽凝
+ 成露珠而得名，古语说“白露身不露”。
 END:VEVENT
 BEGIN:VEVENT
-UID:759fdba2093d5e64ef9833e2fe218ee63733aa36@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:9ad0b3806c2914df5a2bc1648833eb6f4f225975@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20260923
 DTEND;VALUE=DATE:20260924
-SUMMARY:节气：秋分
-DESCRIPTION:二十四节气：秋分\n昼夜接近等长，秋意更明
- 显。\n全天显示。
+SUMMARY:秋分
+DESCRIPTION:二十四节气：秋分\n典故：秋分昼夜再度平分
+ ，也是中国农民丰收节所在节气。
 END:VEVENT
 BEGIN:VEVENT
-UID:c8db34d1848108c368aa8bed86942067d796e57a@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:cddf71039fd7f137ba3d3672a41ee49161a14d6c@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20261008
 DTEND;VALUE=DATE:20261009
-SUMMARY:节气：寒露
-DESCRIPTION:二十四节气：寒露\n气温继续下降，注意保暖
- 。\n全天显示。
+SUMMARY:寒露
+DESCRIPTION:二十四节气：寒露\n典故：寒露比白露更冷，
+ 露水将凝成霜，民间有登高、赏菊习俗。
 END:VEVENT
 BEGIN:VEVENT
-UID:bb9e1ec4d19f6b04bb8bc4c7534dfcdbbef26d9c@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:b83a11946f78db4a36baa0f225e0d28e2f4ba5a9@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-SUMMARY:节气：霜降
-DESCRIPTION:二十四节气：霜降\n秋末冬初，早晚更冷。\n全
- 天显示。
+SUMMARY:霜降
+DESCRIPTION:二十四节气：霜降\n典故：霜降是秋季最后一
+ 个节气，古人重视补冬前的进补。
 END:VEVENT
 BEGIN:VEVENT
-UID:7f8b42c4301bbe9b5b078ed0671d1a4d4808124d@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:f0240d88ce66500a7f033b977c870981f31060bf@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
-SUMMARY:节气：立冬
-DESCRIPTION:二十四节气：立冬\n冬季开始，注意防寒。\n全
- 天显示。
+SUMMARY:立冬
+DESCRIPTION:二十四节气：立冬\n典故：立冬为冬季开始，
+ 民间有补冬、吃饺子的习俗。
 END:VEVENT
 BEGIN:VEVENT
-UID:e4530d807be1375db4eda3dc43d38f0e356339c7@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:862ba980817b0d91d12ba906f7920c0e2e199e2c@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
-SUMMARY:节气：小雪
-DESCRIPTION:二十四节气：小雪\n气温降低，北方可能出现
- 降雪。\n全天显示。
+SUMMARY:小雪
+DESCRIPTION:二十四节气：小雪\n典故：小雪表示降雪渐起
+ 但未盛，北方常有腌菜、腌肉习俗。
 END:VEVENT
 BEGIN:VEVENT
-UID:8b31705202a98211697d34cddea8dd28b0001bcb@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:a9fe8fd79fd404e487de9632affc49a5c2b2cf5c@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
-SUMMARY:节气：大雪
-DESCRIPTION:二十四节气：大雪\n降雪概率增加，注意出行
- 安全。\n全天显示。
+SUMMARY:大雪
+DESCRIPTION:二十四节气：大雪\n典故：大雪表示雪量增多
+ 、仲冬开始，民间讲究进补御寒。
 END:VEVENT
 BEGIN:VEVENT
-UID:3757c640774a6f5fea61fe991e211a838c95e43c@personal-calendar-free
-DTSTAMP:20260428T083726Z
+UID:6a3da07520b66e4bc59ad757eee9ec262751ccc7@personal-calendar-free
+DTSTAMP:20260428T090217Z
 DTSTART;VALUE=DATE:20261222
 DTEND;VALUE=DATE:20261223
-SUMMARY:节气：冬至
-DESCRIPTION:二十四节气：冬至\n白昼最短，天气寒冷。\n全
- 天显示。
+SUMMARY:冬至
+DESCRIPTION:二十四节气：冬至\n典故：冬至阳气始生，古
+ 人称“冬至大如年”，北方吃饺子，南方吃汤圆。
 END:VEVENT
 BEGIN:VEVENT
-UID:5822930bc74fcd52d0a043f710af6a0f07dd6b26@personal-calendar-free
-DTSTAMP:20260428T083741Z
+UID:efb8b2d69ba1c54f1a87c39d14d2c810571b435f@personal-calendar-free
+DTSTAMP:20260428T090230Z
 DTSTART;TZID=Asia/Shanghai:20260428T090000
 DTEND;TZID=Asia/Shanghai:20260428T093000
-SUMMARY:AI 24小时热点：DeepSeek注册资本提高一半，梁文锋
- 持股升至34%-观察者网 -…
-DESCRIPTION:过去24小时 AI 热点推荐，生成时间：2026-04-28 16
- :37\n\n1. [AI] DeepSeek注册资本提高一半，梁文锋持股升至3
- 4%\n   提炼：AI动向：DeepSeek注册资本提高一半；关键信
- 息：梁文锋持股升至34%。适合关注模型能力、产品变化
- 和内容选题机会。｜来源：guancha.cn\n\n2. [AI] DeepSeek-V4冲
- 击持续，港股大模型“双雄”午后跳水\n   提炼：AI动
- 向：DeepSeek-V4冲击持续；关键信息：港股大模型“双雄
- ”午后跳水。适合关注模型能力、产品变化和内容选题
- 机会。｜来源：21财经\n\n3. [AI] DeepSeek延长v4-pro模型优
- 惠活动至5月31日\n   提炼：AI动向：DeepSeek延长v4-pro模型
- 优惠活动至5月31日。适合关注模型能力、产品变化和内
- 容选题机会。｜来源：新浪财经\n\n4. [AI] DeepSeek V4炸场
- 背后：硅谷在“造墙”，中国在“修路”\n   提炼：AI
- 动向：DeepSeek V4炸场背后；关键信息：硅谷在“造墙”
- ；中国在“修路”。适合关注模型能力、产品变化和内
- 容选题机会。｜来源：thepaper.cn\n\n5. [AI] 不只“炼丹”
- ，开始“造物”：一脉阳光定义影像AI的“DeepSeek时刻
- ”\n   提炼：AI动向：不只“炼丹”；关键信息：开始
- “造物”；一脉阳光定义影像AI的“DeepSeek时刻”。适
+SUMMARY:AI 24小时热点：DeepSeek完成增资，梁文锋持股比例
+ 大幅提升 - 21财经
+DESCRIPTION:过去24小时 AI 热点推荐，生成时间：2026-04-28 17
+ :02\n\n1. [AI] DeepSeek完成增资，梁文锋持股比例大幅提升\
+ n   提炼：AI动向：DeepSeek完成增资；关键信息：梁文锋
+ 持股比例大幅提升。适合关注模型能力、产品变化和内
+ 容选题机会。｜来源：21财经\n\n2. [AI] DeepSeek注册资本
+ 提高一半，梁文锋持股升至34%\n   提炼：AI动向：DeepSeek
+ 注册资本提高一半；关键信息：梁文锋持股升至34%。适
  合关注模型能力、产品变化和内容选题机会。｜来源：
- 证券时报
+ guancha.cn\n\n3. [AI] DeepSeek V4首发适配背后：昇腾为什么坚
+ 持不做CUDA兼容层？\n   提炼：AI动向：DeepSeek V4首发适
+ 配背后；关键信息：昇腾为什么坚持不做CUDA兼容层。
+ 适合关注模型能力、产品变化和内容选题机会。｜来源
+ ：新浪财经\n\n4. [AI] DeepSeek V4炸场背后：硅谷在“造墙
+ ”，中国在“修路”\n   提炼：AI动向：DeepSeek V4炸场背
+ 后；关键信息：硅谷在“造墙”；中国在“修路”。适
+ 合关注模型能力、产品变化和内容选题机会。｜来源：
+ thepaper.cn\n\n5. [AI] 不只“炼丹”，开始“造物”：一脉
+ 阳光定义影像AI的“DeepSeek时刻”\n   提炼：AI动向：不
+ 只“炼丹”；关键信息：开始“造物”；一脉阳光定义
+ 影像AI的“DeepSeek时刻”。适合关注模型能力、产品变
+ 化和内容选题机会。｜来源：证券时报
 END:VEVENT
 BEGIN:VEVENT
-UID:e23b2ace2fbd7ecbf39208b0f5cf54238d98fa4f@personal-calendar-free
-DTSTAMP:20260428T083741Z
+UID:3efaf4fb5a0b739a4dda48bd725b863561fa034f@personal-calendar-free
+DTSTAMP:20260428T090230Z
 DTSTART;TZID=Asia/Shanghai:20260428T200000
 DTEND;TZID=Asia/Shanghai:20260428T203000
-SUMMARY:影视24小时推荐：“五一”档电影片单抢先看——
- 无锡出品“双子星”领跑新片票房榜 - 手…
+SUMMARY:影视24小时推荐：寂静的朋友｜豆瓣北京正在上映
 DESCRIPTION:过去24小时影视/电视剧/电影/动漫热点推荐，
- 生成时间：2026-04-28 16:37\n\n1. [电影] “五一”档电影片
- 单抢先看——无锡出品“双子星”领跑新片票房榜\n   
- 提炼：电影信息：“五一”档电影片单抢先看；关键信
- 息：无锡出品“双子星”领跑新片票房榜。适合快速判
- 断近期院线/平台新片和档期热度。｜来源：手机新浪
- 网\n\n2. [电影] 预售破2500万！2026“最挤”五一档18片混
- 战，谁能凭口碑杀出重围？\n   提炼：电影信息：预售
- 破2500万；关键信息：2026“最挤”五一档18片混战；谁
- 能凭口碑杀出重围。适合快速判断近期院线/平台新片
- 和档期热度。｜来源：手机新浪网\n\n3. [电影] 五一档
- 新片来袭：你最期待哪一部？\n   提炼：电影信息：五
- 一档新片来袭；关键信息：你最期待哪一部。适合快速
- 判断近期院线/平台新片和档期热度。｜来源：搜狐网\n
- \n4. [电视剧] 4月24日追剧日历，5部热播剧更新，《八千
- 里路云和月》即将收官\n   提炼：剧集信息：4月24日追
- 剧日历；关键信息：5部热播剧更新；《八千里路云和
- 月》即将收官。适合快速判断今天有哪些剧在更新、开
- 播或收官。｜来源：手机新浪网\n\n5. [电视剧] 4月28日
- 追剧日历，5部热播剧更新，《爱情没有神话》今日开
- 播\n   提炼：剧集信息：4月28日追剧日历；关键信息：5
- 部热播剧更新；《爱情没有神话》今日开播。适合快速
- 判断今天有哪些剧在更新、开播或收官。｜来源：手机
- 新浪网
+ 生成时间：2026-04-28 17:02\n\n1. [电影] 寂静的朋友｜豆瓣
+ 北京正在上映\n   提炼：豆瓣北京正在上映影片；可优
+ 先判断近期新片和院线热度。｜来源：豆瓣\n\n2. [电影]
+  迈克尔·杰克逊：巨星之路｜豆瓣北京正在上映\n   提
+ 炼：豆瓣北京正在上映影片；可优先判断近期新片和院
+ 线热度。｜来源：豆瓣\n\n3. [电影] 燃比娃｜豆瓣北京
+ 正在上映\n   提炼：豆瓣北京正在上映影片；可优先判
+ 断近期新片和院线热度。｜来源：豆瓣\n\n4. [电影] 世
+ 界的主人｜豆瓣热门电影\n   提炼：豆瓣热门电影推荐
+ ；评分：9.2。适合快速判断今天值得关注的电影。｜来
+ 源：豆瓣\n\n5. [电影] 巅峰猎杀｜豆瓣热门电影\n   提炼
+ ：豆瓣热门电影推荐；评分：6.5。适合快速判断今天值
+ 得关注的电影。｜来源：豆瓣
 END:VEVENT
 END:VCALENDAR

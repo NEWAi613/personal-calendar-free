@@ -19,12 +19,37 @@ OUT = Path(__file__).resolve().parent / "calendar.ics"
 TODAY = date.today()
 WEATHER_DAYS = 7
 
-CN_HOLIDAYS_FIXED = {"01-01": "元旦", "05-01": "劳动节", "10-01": "国庆节"}
+CN_HOLIDAYS_FIXED = {
+    "01-01": "元旦",
+    "03-08": "妇女节",
+    "03-12": "植树节",
+    "05-01": "劳动节",
+    "05-04": "青年节",
+    "06-01": "儿童节",
+    "07-01": "建党节",
+    "08-01": "建军节",
+    "09-03": "中国人民抗日战争胜利纪念日",
+    "09-10": "教师节",
+    "09-30": "烈士纪念日",
+    "10-01": "国庆节",
+    "11-08": "记者节",
+    "12-04": "国家宪法日",
+    "12-13": "南京大屠杀死难者国家公祭日",
+    "12-20": "澳门回归纪念日",
+}
 CN_HOLIDAYS_2026 = {
+    "2026-01-26": "腊八节",
+    "2026-02-10": "北方小年",
+    "2026-02-11": "南方小年",
+    "2026-02-16": "除夕",
     "2026-02-17": "春节",
+    "2026-03-03": "元宵节",
     "2026-04-05": "清明节",
     "2026-06-19": "端午节",
+    "2026-08-19": "七夕节",
+    "2026-08-27": "中元节",
     "2026-09-25": "中秋节",
+    "2026-10-18": "重阳节",
 }
 
 SOLAR_TERMS_2026 = {
@@ -43,30 +68,30 @@ SOLAR_TERMS_2026 = {
 }
 
 SOLAR_TERM_TIPS = {
-    "立春": "春季开始，适合关注换季穿衣和作息调整。",
-    "雨水": "降水逐渐增多，出门留意雨具。",
-    "惊蛰": "天气回暖，昼夜温差仍明显。",
-    "春分": "昼夜接近等长，适合安排户外活动。",
-    "清明": "春和景明，也常伴随降雨。",
-    "谷雨": "雨水增多，空气湿度上升。",
-    "立夏": "夏季开始，注意防晒和补水。",
-    "小满": "气温升高，闷热感增强。",
-    "芒种": "天气更热，雨水也更频繁。",
-    "夏至": "白昼最长，注意防暑。",
-    "小暑": "进入炎热阶段，减少暴晒。",
-    "大暑": "一年中最热阶段之一，防暑降温。",
-    "立秋": "秋季开始，但暑热可能还在。",
-    "处暑": "暑热逐渐退去，早晚开始转凉。",
-    "白露": "早晚凉意明显，注意添衣。",
-    "秋分": "昼夜接近等长，秋意更明显。",
-    "寒露": "气温继续下降，注意保暖。",
-    "霜降": "秋末冬初，早晚更冷。",
-    "立冬": "冬季开始，注意防寒。",
-    "小雪": "气温降低，北方可能出现降雪。",
-    "大雪": "降雪概率增加，注意出行安全。",
-    "冬至": "白昼最短，天气寒冷。",
-    "小寒": "进入寒冷阶段，注意保暖。",
-    "大寒": "一年中最冷阶段之一，重点防寒。",
+    "立春": "典故：立春为二十四节气之首，古代有迎春、鞭春牛的礼俗，寓意劝农开耕。",
+    "雨水": "典故：雨水取“东风解冻，散而为雨”之意，民间常说春雨贵如油。",
+    "惊蛰": "典故：惊蛰意为春雷惊醒蛰伏虫兽，古人认为这是万物复苏的节点。",
+    "春分": "典故：春分昼夜平分，古代有竖蛋、祭日等习俗。",
+    "清明": "典故：清明兼具节气与节日属性，既是踏青时节，也是慎终追远的扫墓日。",
+    "谷雨": "典故：谷雨有“雨生百谷”之意，相传也与仓颉造字、谷子如雨相关。",
+    "立夏": "典故：立夏表示夏季开始，民间有称人、吃立夏蛋等习俗。",
+    "小满": "典故：小满指麦类等夏熟作物籽粒渐满但未全满，讲究“满而不盈”。",
+    "芒种": "典故：芒种意为有芒作物可收、有芒作物可种，是农忙节气。",
+    "夏至": "典故：夏至白昼最长，古代既祭地，也有吃面、消夏的习俗。",
+    "小暑": "典故：小暑意为暑气初盛，民间常有食新、晒伏等习俗。",
+    "大暑": "典故：大暑是一年暑热最盛之时，民间讲究饮伏茶、晒伏姜。",
+    "立秋": "典故：立秋标志秋季开启，民间有贴秋膘、啃秋等习俗。",
+    "处暑": "典故：处暑意为暑气到此而止，民间有出游迎秋、放河灯等传统。",
+    "白露": "典故：白露因夜间水汽凝成露珠而得名，古语说“白露身不露”。",
+    "秋分": "典故：秋分昼夜再度平分，也是中国农民丰收节所在节气。",
+    "寒露": "典故：寒露比白露更冷，露水将凝成霜，民间有登高、赏菊习俗。",
+    "霜降": "典故：霜降是秋季最后一个节气，古人重视补冬前的进补。",
+    "立冬": "典故：立冬为冬季开始，民间有补冬、吃饺子的习俗。",
+    "小雪": "典故：小雪表示降雪渐起但未盛，北方常有腌菜、腌肉习俗。",
+    "大雪": "典故：大雪表示雪量增多、仲冬开始，民间讲究进补御寒。",
+    "冬至": "典故：冬至阳气始生，古人称“冬至大如年”，北方吃饺子，南方吃汤圆。",
+    "小寒": "典故：小寒进入一年最冷阶段，民间有画九九消寒图的雅俗。",
+    "大寒": "典故：大寒为岁末最后节气，常与除旧布新、准备年节相连。",
 }
 
 FALLBACK_AI = [
@@ -261,13 +286,8 @@ def tvmaze_updates(max_records: int = 6) -> list[dict]:
 
 
 def ai_hotspots() -> list[dict]:
-    # Google News 中文热点 + GDELT + Hacker News，多源兜底，优先当天/过去 24 小时。
+    # AI 新闻按用户要求只从 Google News 中文搜索，优先当天/过去 24 小时。
     rows = google_news_articles('AI OR 人工智能 OR 大模型 OR OpenAI OR ChatGPT OR Claude OR Gemini OR DeepSeek when:1d', max_records=8)
-    query = '(AI OR OpenAI OR ChatGPT OR Claude OR Gemini OR DeepSeek)'
-    if len(rows) < 4:
-        rows.extend(gdelt_articles(query, max_records=8 - len(rows)))
-    if len(rows) < 6:
-        rows.extend(hn_ai_articles(max_records=8 - len(rows)))
     unique = []
     seen = set()
     for row in rows:
@@ -282,19 +302,87 @@ def has_cjk(text: str) -> bool:
     return bool(re.search(r"[\u4e00-\u9fff]", str(text or "")))
 
 
-def entertainment_hotspots() -> list[dict]:
-    # 影视优先走中文热点，分别抓电影、电视剧、动漫，避免泛娱乐新闻混进来。
+def douban_subjects(subject_type: str, tag: str, max_records: int = 5) -> list[dict]:
+    """Fetch Douban public subject lists.
+
+    Douban does not offer a stable official free API for every ranking page, but
+    this public endpoint is enough for lightweight daily calendar recommendations.
+    """
+    params = urllib.parse.urlencode({
+        "type": subject_type,
+        "tag": tag,
+        "sort": "recommend",
+        "page_limit": max_records,
+        "page_start": 0,
+    })
+    url = f"https://movie.douban.com/j/search_subjects?{params}"
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 personal-calendar-free/1.0",
+            "Referer": "https://movie.douban.com/explore",
+        })
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        return []
+
     rows = []
-    for q in ['电影 新片 上映 when:1d', '电视剧 新剧 热播 when:1d', '动漫 国漫 日漫 更新 when:1d']:
-        rows.extend([
-            r for r in google_news_articles(q, max_records=8)
-            if has_cjk(r.get("title")) and has_cjk(r.get("source"))
-        ][:3])
-    query = '(movie OR film OR anime OR Netflix OR Disney OR HBO)'
-    if len(rows) < 4:
-        rows.extend(gdelt_articles(query, max_records=8 - len(rows)))
-    if len(rows) < 6:
-        rows.extend(tvmaze_updates(max_records=8 - len(rows)))
+    label = "电视剧" if subject_type == "tv" else "电影"
+    for item in data.get("subjects", []) or []:
+        title = clean_text(item.get("title"), 80)
+        if not title:
+            continue
+        rate = clean_text(item.get("rate") or "暂无评分", 20)
+        url = str(item.get("url") or "")
+        summary = f"豆瓣{tag}{label}推荐；评分：{rate}。适合快速判断今天值得关注的{label}。"
+        rows.append({"title": f"{title}｜豆瓣{tag}{label}", "url": url, "source": "豆瓣", "summary": summary})
+    return rows
+
+
+def douban_nowplaying(max_records: int = 5) -> list[dict]:
+    url = "https://movie.douban.com/cinema/nowplaying/beijing/"
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 personal-calendar-free/1.0",
+            "Referer": "https://movie.douban.com/cinema/nowplaying/beijing/",
+        })
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            raw = resp.read(500_000).decode("utf-8", errors="ignore")
+    except Exception:
+        return []
+
+    rows = []
+    seen = set()
+    for block in re.findall(r"<li[^>]+data-title=\"([^\"]+)\"[\s\S]*?</li>", raw, flags=re.I):
+        title = clean_text(block, 80)
+        if not title or title in seen:
+            continue
+        seen.add(title)
+        rows.append({
+            "title": f"{title}｜豆瓣北京正在上映",
+            "url": url,
+            "source": "豆瓣",
+            "summary": f"豆瓣北京正在上映影片；可优先判断近期新片和院线热度。",
+        })
+        if len(rows) >= max_records:
+            break
+    return rows
+
+
+def entertainment_hotspots() -> list[dict]:
+    # 影视内容优先走豆瓣：新上映/热门电影/热门电视剧；豆瓣不可用时再用中文新闻兜底。
+    rows = []
+    rows.extend(douban_nowplaying(max_records=3))
+    rows.extend(douban_subjects("movie", "热门", max_records=4))
+    rows.extend(douban_subjects("movie", "最新", max_records=4))
+    rows.extend(douban_subjects("tv", "热门", max_records=4))
+    rows.extend(douban_subjects("tv", "国产剧", max_records=3))
+    if len(rows) < 5:
+        for q in ['电影 新片 上映 when:1d', '电视剧 新剧 热播 when:1d', '动漫 国漫 日漫 更新 when:1d']:
+            rows.extend([
+                r for r in google_news_articles(q, max_records=8)
+                if has_cjk(r.get("title")) and has_cjk(r.get("source"))
+            ][:3])
     unique = []
     seen = set()
     for row in rows:
@@ -415,7 +503,7 @@ def holiday_events(start: date, days: int) -> list[str]:
         d = start + timedelta(days=i)
         name = CN_HOLIDAYS_FIXED.get(d.strftime("%m-%d")) or CN_HOLIDAYS_2026.get(d.isoformat())
         if name:
-            events.append(vevent(d, f"节假日：{name}", "中国节假日，全天显示。", all_day=True))
+            events.append(vevent(d, name, f"中国大陆常见节日：{name}", all_day=True))
     return events
 
 
@@ -426,7 +514,7 @@ def solar_term_events(start: date, days: int) -> list[str]:
         d = date.fromisoformat(raw_day)
         if start <= d < end:
             tip = SOLAR_TERM_TIPS.get(name, "中国传统二十四节气。")
-            events.append(vevent(d, f"节气：{name}", f"二十四节气：{name}\n{tip}\n全天显示。", all_day=True))
+            events.append(vevent(d, name, f"二十四节气：{name}\n{tip}", all_day=True))
     return events
 
 
@@ -489,9 +577,9 @@ def enrich_article_summaries(items: list[dict], max_items: int = 5) -> list[dict
         row = dict(item)
         title = row.get("title", "")
         source = row.get("source", "")
-        summary = clean_text(row.get("summary"), 150)
+        summary = clean_text(row.get("summary"), 180)
         # RSS 自带摘要不够可读时，再尝试读取原网页 meta description / 正文段落。
-        if (not summary or len(summary) < 35 or summary.lower() in {"english", "chinese"}) and row.get("url"):
+        if source != "豆瓣" and (not summary or len(summary) < 35 or summary.lower() in {"english", "chinese"}) and row.get("url"):
             summary = fetch_page_summary(row.get("url"), title, 150)
         title_core = strip_source_from_title(title, source)
         # 如果摘要只是把标题重复一遍，就改成结构化信息提炼。
