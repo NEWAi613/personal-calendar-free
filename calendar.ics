@@ -7,7 +7,7 @@ X-WR-CALNAME:北京海淀生活提醒
 X-WR-TIMEZONE:Asia/Shanghai
 BEGIN:VEVENT
 UID:aa64a94407224bfa7633a5a820873ef1592a4193@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260428T070000
 DTEND;TZID=Asia/Shanghai:20260428T073000
 SUMMARY:北京海淀天气：小毛毛雨 10-21℃｜穿衣：卫衣/薄
@@ -18,7 +18,7 @@ DESCRIPTION:天气：小毛毛雨\n温度：10-21℃\n穿衣推荐：卫
 END:VEVENT
 BEGIN:VEVENT
 UID:26321b65731f5d2f21d22da16a5903bda4530c81@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260429T070000
 DTEND;TZID=Asia/Shanghai:20260429T073000
 SUMMARY:北京海淀天气：晴 8-25℃｜穿衣：长袖或薄外套，
@@ -29,7 +29,7 @@ DESCRIPTION:天气：晴\n温度：8-25℃\n穿衣推荐：长袖或薄
 END:VEVENT
 BEGIN:VEVENT
 UID:d41b45f5e0c6944f9c890340526ad489fca0661a@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260430T070000
 DTEND;TZID=Asia/Shanghai:20260430T073000
 SUMMARY:北京海淀天气：阴 10-27℃｜穿衣：长袖或薄外套
@@ -40,7 +40,7 @@ DESCRIPTION:天气：阴\n温度：10-27℃\n穿衣推荐：长袖或薄
 END:VEVENT
 BEGIN:VEVENT
 UID:e724c7477db7e28a7c93c23f799c9adadcfad7fc@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260501T070000
 DTEND;TZID=Asia/Shanghai:20260501T073000
 SUMMARY:北京海淀天气：阴 14-25℃｜穿衣：长袖或薄外套
@@ -51,7 +51,7 @@ DESCRIPTION:天气：阴\n温度：14-25℃\n穿衣推荐：长袖或薄
 END:VEVENT
 BEGIN:VEVENT
 UID:821a85133845111d3a1821d78a64f01464d29065@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260502T070000
 DTEND;TZID=Asia/Shanghai:20260502T073000
 SUMMARY:北京海淀天气：阴 15-28℃｜穿衣：短袖/轻薄透气
@@ -62,7 +62,7 @@ DESCRIPTION:天气：阴\n温度：15-28℃\n穿衣推荐：短袖/轻薄
 END:VEVENT
 BEGIN:VEVENT
 UID:4446fad496b688d884da1c3d2bf35d314f266aac@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260503T070000
 DTEND;TZID=Asia/Shanghai:20260503T073000
 SUMMARY:北京海淀天气：大部晴朗 14-26℃｜穿衣：长袖或
@@ -73,7 +73,7 @@ DESCRIPTION:天气：大部晴朗\n温度：14-26℃\n穿衣推荐：长
 END:VEVENT
 BEGIN:VEVENT
 UID:7910649db36f0ba26b4a7bd51ec89a65fac2965d@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260504T070000
 DTEND;TZID=Asia/Shanghai:20260504T073000
 SUMMARY:北京海淀天气：晴 13-28℃｜穿衣：长袖或薄外套
@@ -84,7 +84,7 @@ DESCRIPTION:天气：晴\n温度：13-28℃\n穿衣推荐：长袖或薄
 END:VEVENT
 BEGIN:VEVENT
 UID:14ec1fb17842af582e90877a47d5006145d96646@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260501T080000
 DTEND;TZID=Asia/Shanghai:20260501T083000
 SUMMARY:节假日：劳动节
@@ -92,7 +92,7 @@ DESCRIPTION:中国节假日提醒
 END:VEVENT
 BEGIN:VEVENT
 UID:34e6270928089d57df7baaa0564273dba41539e3@personal-calendar-free
-DTSTAMP:20260428T082352Z
+DTSTAMP:20260428T082437Z
 DTSTART;TZID=Asia/Shanghai:20260619T080000
 DTEND;TZID=Asia/Shanghai:20260619T083000
 SUMMARY:节假日：端午节
@@ -100,13 +100,13 @@ DESCRIPTION:中国节假日提醒
 END:VEVENT
 BEGIN:VEVENT
 UID:5822930bc74fcd52d0a043f710af6a0f07dd6b26@personal-calendar-free
-DTSTAMP:20260428T082358Z
+DTSTAMP:20260428T082443Z
 DTSTART;TZID=Asia/Shanghai:20260428T090000
 DTEND;TZID=Asia/Shanghai:20260428T093000
 SUMMARY:AI 24小时热点：DeepSeek注册资本提高一半，梁文锋
  持股升至34%-观察者网 -…
 DESCRIPTION:过去24小时 AI 热点推荐，生成时间：2026-04-28 16
- :23\n\n1. DeepSeek注册资本提高一半，梁文锋持股升至34%-
+ :24\n\n1. DeepSeek注册资本提高一半，梁文锋持股升至34%-
  观察者网 - guancha.cn\n   看点：DeepSeek注册资本提高一半
  ，梁文锋持股升至34%-观察者网 guancha.cn｜来源：guancha.c
  n\n\n2. DeepSeek-V4冲击持续，港股大模型“双雄”午后跳
@@ -123,29 +123,29 @@ DESCRIPTION:过去24小时 AI 热点推荐，生成时间：2026-04-28 16
  时报｜来源：证券时报
 END:VEVENT
 BEGIN:VEVENT
-UID:82be2155140350e89e611b3c8511daa26ecc60bc@personal-calendar-free
-DTSTAMP:20260428T082358Z
+UID:e23b2ace2fbd7ecbf39208b0f5cf54238d98fa4f@personal-calendar-free
+DTSTAMP:20260428T082443Z
 DTSTART;TZID=Asia/Shanghai:20260428T200000
 DTEND;TZID=Asia/Shanghai:20260428T203000
-SUMMARY:影视24小时推荐：阅读我们对本周三上映影片的评
- 论 - Sortir à Paris
+SUMMARY:影视24小时推荐：“五一”档电影片单抢先看——
+ 无锡出品“双子星”领跑新片票房榜 - 手…
 DESCRIPTION:过去24小时影视/电视剧/电影/动漫热点推荐，
- 生成时间：2026-04-28 16:23\n\n1. 阅读我们对本周三上映影
- 片的评论 - Sortir à Paris\n   看点：阅读我们对本周三上
- 映影片的评论。｜来源：Sortir à Paris\n\n2. “五一”档
- 电影片单抢先看——无锡出品“双子星”领跑新片票房
- 榜 - 手机新浪网\n   看点：“五一”档电影片单抢先看
- ——无锡出品“双子星”领跑新片票房榜 手机新浪网
- ｜来源：手机新浪网\n\n3. 预售破2500万！2026“最挤”五
- 一档18片混战，谁能凭口碑杀出重围？ - 手机新浪网\n  
-  看点：预售破2500万！2026“最挤”五一档18片混战，谁
- 能凭口碑杀出重围？ 手机新浪网｜来源：手机新浪网\n
- \n4. 4月24日追剧日历，5部热播剧更新，《八千里路云和
- 月》即将收官 - 手机新浪网\n   看点：4月24日追剧日历
- ，5部热播剧更新，《八千里路云和月》即将收官 手机
- 新浪网｜来源：手机新浪网\n\n5. 4月28日追剧日历，5部
- 热播剧更新，《爱情没有神话》今日开播 - 手机新浪网
- \n   看点：4月28日追剧日历，5部热播剧更新，《爱情没
- 有神话》今日开播 手机新浪网｜来源：手机新浪网
+ 生成时间：2026-04-28 16:24\n\n1. “五一”档电影片单抢先
+ 看——无锡出品“双子星”领跑新片票房榜 - 手机新浪
+ 网\n   看点：“五一”档电影片单抢先看——无锡出品
+ “双子星”领跑新片票房榜 手机新浪网｜来源：手机
+ 新浪网\n\n2. 预售破2500万！2026“最挤”五一档18片混战
+ ，谁能凭口碑杀出重围？ - 手机新浪网\n   看点：预售
+ 破2500万！2026“最挤”五一档18片混战，谁能凭口碑杀
+ 出重围？ 手机新浪网｜来源：手机新浪网\n\n3. 五一档
+ 新片来袭：你最期待哪一部？ - 搜狐网\n   看点：五一
+ 档新片来袭：你最期待哪一部？｜来源：搜狐网\n\n4. 4
+ 月24日追剧日历，5部热播剧更新，《八千里路云和月》
+ 即将收官 - 手机新浪网\n   看点：4月24日追剧日历，5部
+ 热播剧更新，《八千里路云和月》即将收官 手机新浪
+ 网｜来源：手机新浪网\n\n5. 4月28日追剧日历，5部热播
+ 剧更新，《爱情没有神话》今日开播 - 手机新浪网\n   
+ 看点：4月28日追剧日历，5部热播剧更新，《爱情没有
+ 神话》今日开播 手机新浪网｜来源：手机新浪网
 END:VEVENT
 END:VCALENDAR

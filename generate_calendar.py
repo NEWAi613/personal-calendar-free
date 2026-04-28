@@ -244,7 +244,10 @@ def entertainment_hotspots() -> list[dict]:
     # 影视优先走中文热点，分别抓电影、电视剧、动漫，避免泛娱乐新闻混进来。
     rows = []
     for q in ['电影 新片 上映 when:1d', '电视剧 新剧 热播 when:1d', '动漫 国漫 日漫 更新 when:1d']:
-        rows.extend([r for r in google_news_articles(q, max_records=5) if has_cjk(r.get("title"))][:3])
+        rows.extend([
+            r for r in google_news_articles(q, max_records=8)
+            if has_cjk(r.get("title")) and has_cjk(r.get("source"))
+        ][:3])
     query = '(movie OR film OR anime OR Netflix OR Disney OR HBO)'
     if len(rows) < 4:
         rows.extend(gdelt_articles(query, max_records=8 - len(rows)))
