@@ -52,6 +52,15 @@ CN_HOLIDAYS_2026 = {
     "2026-10-18": "重阳节",
 }
 
+# 需要连续休假的节日合并成一个全天跨日期事件，避免每天重复标记。
+HOLIDAY_RANGES_2026 = [
+    ("2026-05-01", "2026-05-05", "劳动节假期"),
+    ("2026-06-19", "2026-06-21", "端午节假期"),
+    ("2026-09-25", "2026-09-27", "中秋节假期"),
+    ("2026-10-01", "2026-10-07", "国庆节假期"),
+    ("2027-01-01", "2027-01-03", "元旦假期"),
+]
+
 SOLAR_TERMS_2026 = {
     "2026-01-05": "小寒", "2026-01-20": "大寒",
     "2026-02-04": "立春", "2026-02-18": "雨水",
@@ -339,6 +348,84 @@ def douban_subjects(subject_type: str, tag: str, max_records: int = 5) -> list[d
     return rows
 
 
+def douban_subject_detail(url: str) -> dict:
+    if not url:
+        return {}
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 personal-calendar-free/1.0",
+            "Referer": "https://movie.douban.com/",
+        })
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            raw = resp.read(400_000).decode("utf-8", errors="ignore")
+    except Exception:
+        return {}
+    intro = ""
+    m = re.search(r'<span property="v:summary"[^>]*>([\s\S]*?)</span>', raw, flags=re.I)
+    if m:
+        intro = clean_text(m.group(1), 120)
+    directors = "、".join(clean_text(x, 20) for x in re.findall(r'rel="v:directedBy">([^<]+)</a>', raw)[:2])
+    actors = "、".join(clean_text(x, 20) for x in re.findall(r'rel="v:starring">([^<]+)</a>', raw)[:4])
+    release_dates = re.findall(r'property="v:initialReleaseDate"[^>]*content="([^"]+)"', raw)
+    return {"intro": intro, "directors": directors, "actors": actors, "date": clean_text(" / ".join(release_dates[:2]), 60)}
+
+
+def douban_coming_movies(max_records: int = 5) -> list[dict]:
+    url = "https://movie.douban.com/coming"
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 personal-calendar-free/1.0",
+            "Referer": "https://movie.douban.com/",
+        })
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            raw = resp.read(600_000).decode("utf-8", errors="ignore")
+    except Exception:
+        return []
+
+    rows = []
+    for tr in re.findall(r"<tr>([\s\S]*?)</tr>", raw, flags=re.I):
+        date_m = re.search(r"<td>\s*([0-9]{2}月[0-9]{2}日)", tr)
+        link_m = re.search(r'<a href="([^"]+)" title="([^"]+)">([^<]+)</a>', tr)
+        tds = re.findall(r"<td>\s*([\s\S]*?)\s*</td>", tr, flags=re.I)
+        if not date_m or not link_m or len(tds) < 5:
+            continue
+        title = clean_text(link_m.group(3), 80)
+        href = link_m.group(1)
+        kind = clean_text(tds[2], 50)
+        area = clean_text(tds[3], 40)
+        wish = clean_text(tds[4], 30)
+        detail = douban_subject_detail(href)
+        desc_parts = [f"日期：{date_m.group(1)}", f"类型：{kind}", f"地区：{area}", f"热度：{wish}"]
+        if detail.get("actors"):
+            desc_parts.append(f"演员：{detail['actors']}")
+        if detail.get("intro"):
+            desc_parts.append(f"简介：{detail['intro']}")
+        rows.append({"title": f"{title}｜即将上映电影", "url": href, "source": "豆瓣", "summary": "；".join(desc_parts)})
+        if len(rows) >= max_records:
+            break
+    return rows
+
+
+def upcoming_news_items(label: str, query: str, max_records: int = 2) -> list[dict]:
+    rows = []
+    for item in google_news_articles(query, max_records=max_records * 2):
+        title = strip_source_from_title(item.get("title", ""), item.get("source", ""))
+        if not has_cjk(title):
+            continue
+        date_m = re.search(r"([0-9]{1,2}月[0-9]{1,2}日|今日|明日|本周|五一|暑期|暑假|即将)", title)
+        date_text = date_m.group(1) if date_m else "见新闻/平台官宣"
+        summary = title_takeaway(title, item.get("source", ""), 140)
+        rows.append({
+            "title": f"{title}｜近期{label}",
+            "url": item.get("url", ""),
+            "source": item.get("source") or "Google News",
+            "summary": f"日期：{date_text}；演员/主创：见原文；简介：{summary}",
+        })
+        if len(rows) >= max_records:
+            break
+    return rows
+
+
 def douban_nowplaying(max_records: int = 5) -> list[dict]:
     url = "https://movie.douban.com/cinema/nowplaying/beijing/"
     try:
@@ -370,19 +457,32 @@ def douban_nowplaying(max_records: int = 5) -> list[dict]:
 
 
 def entertainment_hotspots() -> list[dict]:
-    # 影视内容优先走豆瓣：新上映/热门电影/热门电视剧；豆瓣不可用时再用中文新闻兜底。
+    # 每日热度推荐：按豆瓣热门电影、热门电视剧优先排序。
     rows = []
-    rows.extend(douban_nowplaying(max_records=3))
-    rows.extend(douban_subjects("movie", "热门", max_records=4))
-    rows.extend(douban_subjects("movie", "最新", max_records=4))
-    rows.extend(douban_subjects("tv", "热门", max_records=4))
-    rows.extend(douban_subjects("tv", "国产剧", max_records=3))
+    rows.extend(douban_subjects("movie", "热门", max_records=3))
+    rows.extend(douban_subjects("tv", "热门", max_records=3))
     if len(rows) < 5:
-        for q in ['电影 新片 上映 when:1d', '电视剧 新剧 热播 when:1d', '动漫 国漫 日漫 更新 when:1d']:
+        for q in ['豆瓣 热门 电影 when:7d', '豆瓣 热门 电视剧 when:7d']:
             rows.extend([
                 r for r in google_news_articles(q, max_records=8)
                 if has_cjk(r.get("title")) and has_cjk(r.get("source"))
             ][:3])
+    unique = []
+    seen = set()
+    for row in rows:
+        title = row.get("title")
+        if title and title not in seen:
+            unique.append(row)
+            seen.add(title)
+    return unique[:8] or FALLBACK_ENTERTAINMENT
+
+
+def upcoming_entertainment() -> list[dict]:
+    rows = []
+    rows.extend(douban_coming_movies(max_records=3))
+    rows.extend(upcoming_news_items("电视剧", '电视剧 新剧 定档 开播 演员 简介 when:14d', max_records=2))
+    rows.extend(upcoming_news_items("短剧", '短剧 定档 开播 演员 简介 when:14d', max_records=2))
+    rows.extend(upcoming_news_items("动漫", '动漫 动画 定档 开播 简介 when:14d', max_records=2))
     unique = []
     seen = set()
     for row in rows:
@@ -469,7 +569,7 @@ def uid(seed: str) -> str:
     return hashlib.sha1(seed.encode("utf-8")).hexdigest() + "@personal-calendar-free"
 
 
-def vevent(day: date, summary: str, description: str, hour: int = 9, all_day: bool = False) -> str:
+def vevent(day: date, summary: str, description: str, hour: int = 9, all_day: bool = False, end_day=None) -> str:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lines = [
         "BEGIN:VEVENT",
@@ -477,7 +577,7 @@ def vevent(day: date, summary: str, description: str, hour: int = 9, all_day: bo
         f"DTSTAMP:{stamp}",
     ]
     if all_day:
-        end_day = day + timedelta(days=1)
+        end_day = end_day or (day + timedelta(days=1))
         lines.extend([
             f"DTSTART;VALUE=DATE:{day.strftime('%Y%m%d')}",
             f"DTEND;VALUE=DATE:{end_day.strftime('%Y%m%d')}",
@@ -499,8 +599,22 @@ def vevent(day: date, summary: str, description: str, hour: int = 9, all_day: bo
 
 def holiday_events(start: date, days: int) -> list[str]:
     events = []
+    end = start + timedelta(days=days)
+    covered = set()
+    for raw_start, raw_end, name in HOLIDAY_RANGES_2026:
+        d1 = date.fromisoformat(raw_start)
+        d2_inclusive = date.fromisoformat(raw_end)
+        d2_exclusive = d2_inclusive + timedelta(days=1)
+        if d2_exclusive <= start or d1 >= end:
+            continue
+        for n in range((d2_exclusive - d1).days):
+            covered.add(d1 + timedelta(days=n))
+        desc = f"中国大陆节假日：{name}\n日期：{d1.strftime('%Y-%m-%d')} 至 {d2_inclusive.strftime('%Y-%m-%d')}"
+        events.append(vevent(d1, name, desc, all_day=True, end_day=d2_exclusive))
     for i in range(days):
         d = start + timedelta(days=i)
+        if d in covered:
+            continue
         name = CN_HOLIDAYS_FIXED.get(d.strftime("%m-%d")) or CN_HOLIDAYS_2026.get(d.isoformat())
         if name:
             events.append(vevent(d, name, f"中国大陆常见节日：{name}", all_day=True))
@@ -603,21 +717,21 @@ def article_lines(items: list[dict], limit: int = 5) -> str:
 
 
 def today_hotspot_events() -> list[str]:
-    ai_items = ai_hotspots()
-    video_items = entertainment_hotspots()
+    hot_items = entertainment_hotspots()
+    upcoming_items = upcoming_entertainment()
     generated = datetime.now().strftime("%Y-%m-%d %H:%M")
     return [
         vevent(
             TODAY,
-            f"AI 24小时热点：{clean_text(ai_items[0].get('title'), 34)}",
-            f"过去24小时 AI 热点推荐，生成时间：{generated}\n\n{article_lines(ai_items)}",
-            9,
+            f"影视每日热度：{clean_text(hot_items[0].get('title'), 34)}",
+            f"每日热点电影/电视剧推荐，按豆瓣热度优先，生成时间：{generated}\n\n{article_lines(hot_items)}",
+            20,
         ),
         vevent(
             TODAY,
-            f"影视24小时推荐：{clean_text(video_items[0].get('title'), 34)}",
-            f"过去24小时影视/电视剧/电影/动漫热点推荐，生成时间：{generated}\n\n{article_lines(video_items)}",
-            20,
+            f"近期即将上映/开播：{clean_text(upcoming_items[0].get('title'), 30)}",
+            f"近期即将上映/开播内容，覆盖电影、电视剧、短剧、动漫，生成时间：{generated}\n\n{article_lines(upcoming_items, 8)}",
+            21,
         ),
     ]
 
