@@ -409,9 +409,15 @@ def douban_coming_movies(max_records: int = 5) -> list[dict]:
 
 def upcoming_news_items(label: str, query: str, max_records: int = 2) -> list[dict]:
     rows = []
-    for item in google_news_articles(query, max_records=max_records * 2):
+    required = {
+        "电影": ["电影", "影片", "新片", "上映", "院线", "片"],
+        "电视剧": ["电视剧", "剧集", "新剧", "开播", "剧"],
+        "短剧": ["短剧"],
+        "动漫": ["动漫", "动画", "国漫", "番"],
+    }.get(label, [label])
+    for item in google_news_articles(query, max_records=max_records * 4):
         title = strip_source_from_title(item.get("title", ""), item.get("source", ""))
-        if not has_cjk(title):
+        if not has_cjk(title) or not any(k in title for k in required):
             continue
         date_m = re.search(r"([0-9]{1,2}月[0-9]{1,2}日|今日|明日|本周|五一|暑期|暑假|即将)", title)
         date_text = date_m.group(1) if date_m else "见新闻/平台官宣"
@@ -458,39 +464,47 @@ def douban_nowplaying(max_records: int = 5) -> list[dict]:
 
 
 def entertainment_hotspots() -> list[dict]:
-    # 每日热度推荐：按豆瓣热门电影、热门电视剧优先排序。
+    # 每日热度必须优先使用 24 小时新闻，否则豆瓣“热门”会连续多天不变。
     rows = []
-    rows.extend(douban_subjects("movie", "热门", max_records=3))
-    rows.extend(douban_subjects("tv", "热门", max_records=3))
-    if len(rows) < 5:
-        for q in ['豆瓣 热门 电影 when:7d', '豆瓣 热门 电视剧 when:7d']:
-            rows.extend([
-                r for r in google_news_articles(q, max_records=8)
-                if has_cjk(r.get("title")) and has_cjk(r.get("source"))
-            ][:3])
+    for q in [
+        '电影 电视剧 综艺 动漫 热播 热映 热搜 when:1d',
+        '新片 新剧 开播 定档 口碑 票房 when:1d',
+        '豆瓣 猫眼 灯塔 影视 热榜 when:1d',
+    ]:
+        rows.extend([
+            r for r in google_news_articles(q, max_records=10)
+            if has_cjk(r.get("title")) and has_cjk(r.get("source"))
+        ][:4])
+    # 豆瓣只做兜底补充，不再放在最前面，避免每天看起来一样。
+    rows.extend(douban_subjects("movie", "热门", max_records=2))
+    rows.extend(douban_subjects("tv", "热门", max_records=2))
     unique = []
     seen = set()
     for row in rows:
-        title = row.get("title")
-        if title and title not in seen:
+        title = strip_source_from_title(row.get("title", ""), row.get("source", ""))
+        key = re.sub(r"\W+", "", title)[:40]
+        if title and key not in seen:
             unique.append(row)
-            seen.add(title)
+            seen.add(key)
     return unique[:8] or FALLBACK_ENTERTAINMENT
 
 
 def upcoming_entertainment() -> list[dict]:
     rows = []
-    rows.extend(douban_coming_movies(max_records=3))
-    rows.extend(upcoming_news_items("电视剧", '电视剧 新剧 定档 开播 演员 简介 when:14d', max_records=2))
-    rows.extend(upcoming_news_items("短剧", '短剧 定档 开播 演员 简介 when:14d', max_records=2))
-    rows.extend(upcoming_news_items("动漫", '动漫 动画 定档 开播 简介 when:14d', max_records=2))
+    # 先抓最近 24h 的定档/开播新闻，再用豆瓣即将上映兜底。
+    rows.extend(upcoming_news_items("电影", '电影 新片 定档 上映 主演 剧情 when:1d', max_records=2))
+    rows.extend(upcoming_news_items("电视剧", '电视剧 新剧 定档 开播 演员 简介 when:1d', max_records=2))
+    rows.extend(upcoming_news_items("短剧", '短剧 定档 开播 演员 简介 when:1d', max_records=2))
+    rows.extend(upcoming_news_items("动漫", '动漫 动画 定档 开播 简介 when:1d', max_records=2))
+    rows.extend(douban_coming_movies(max_records=4))
     unique = []
     seen = set()
     for row in rows:
-        title = row.get("title")
-        if title and title not in seen:
+        title = strip_source_from_title(row.get("title", ""), row.get("source", ""))
+        key = re.sub(r"\W+", "", title)[:40]
+        if title and key not in seen:
             unique.append(row)
-            seen.add(title)
+            seen.add(key)
     return unique[:8] or FALLBACK_ENTERTAINMENT
 
 
@@ -726,7 +740,7 @@ def today_hotspot_events() -> list[str]:
         vevent(
             TODAY,
             f"影视每日热度：{clean_text(hot_items[0].get('title'), 34)}",
-            f"每日热点电影/电视剧推荐，按豆瓣热度优先，生成时间：{generated}\n\n{article_lines(hot_items)}",
+            f"每日热点电影/电视剧推荐，优先使用近 24 小时新闻，生成时间：{generated}\n\n{article_lines(hot_items)}",
             20,
         ),
         vevent(
