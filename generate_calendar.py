@@ -15,8 +15,9 @@ CITY = "北京海淀"
 LAT = 39.9593
 LON = 116.2985
 TZ = "Asia/Shanghai"
+BJ_TZ = timezone(timedelta(hours=8))
 OUT = Path(__file__).resolve().parent / "calendar.ics"
-TODAY = date.today()
+TODAY = datetime.now(BJ_TZ).date()
 WEATHER_DAYS = 7
 
 CN_HOLIDAYS_FIXED = {
@@ -720,7 +721,7 @@ def article_lines(items: list[dict], limit: int = 5) -> str:
 def today_hotspot_events() -> list[str]:
     hot_items = entertainment_hotspots()
     upcoming_items = upcoming_entertainment()
-    generated = datetime.now().strftime("%Y-%m-%d %H:%M")
+    generated = datetime.now(BJ_TZ).strftime("%Y-%m-%d %H:%M")
     return [
         vevent(
             TODAY,
