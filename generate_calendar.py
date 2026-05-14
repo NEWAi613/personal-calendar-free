@@ -12,6 +12,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 CITY = "北京海淀"
+CMA_STATION_ID = "54399"  # 中国气象局：北京海淀
 LAT = 39.9593
 LON = 116.2985
 TZ = "Asia/Shanghai"
@@ -117,6 +118,18 @@ def fetch_json(url: str, timeout: int = 15, retries: int = 3) -> dict:
     for _ in range(max(1, retries)):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "personal-calendar-free/1.0"})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except Exception as e:
+            last_error = e
+    raise last_error
+
+
+def fetch_json_with_headers(url: str, headers: dict, timeout: int = 15, retries: int = 3) -> dict:
+    last_error = None
+    for _ in range(max(1, retries)):
+        try:
+            req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except Exception as e:
@@ -518,6 +531,19 @@ def weather_code_text(code: int) -> str:
     return table.get(int(code), f"天气代码{code}")
 
 
+def conservative_weather_text(code: int, rain_probability) -> str:
+    """Open-Meteo 有时会出现“雷暴 + 降水概率 0%”的冲突，日历里按更保守的文字展示。"""
+    text = weather_code_text(code)
+    try:
+        rain = float(rain_probability)
+    except Exception:
+        rain = None
+    rain_codes = {51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99}
+    if int(code) in rain_codes and rain is not None and rain < 30:
+        return "多云，低概率降雨"
+    return text
+
+
 def clothing_tip(tmax: float, tmin: float, code: int) -> str:
     rain_codes = {51, 53, 55, 61, 63, 65, 80, 81, 82, 95}
     if tmax >= 28:
@@ -538,6 +564,50 @@ def clothing_tip(tmax: float, tmin: float, code: int) -> str:
 
 
 def load_weather() -> list[dict]:
+    cma_rows = load_cma_weather()
+    if cma_rows:
+        return cma_rows[:WEATHER_DAYS]
+    return load_open_meteo_weather()
+
+
+def load_cma_weather() -> list[dict]:
+    """优先使用中国气象局城市预报，比 Open-Meteo 的国内天气代码更贴近日历使用。"""
+    url = f"https://weather.cma.cn/api/weather/view?stationid={CMA_STATION_ID}"
+    try:
+        data = fetch_json_with_headers(url, {
+            "User-Agent": "Mozilla/5.0 personal-calendar-free/1.0",
+            "Referer": "https://weather.cma.cn/",
+            "Accept": "application/json,text/plain,*/*",
+        }, timeout=15, retries=3)
+    except Exception:
+        return []
+    if data.get("code") != 0:
+        return []
+    payload = data.get("data") or {}
+    location = payload.get("location") or {}
+    rows = []
+    for item in payload.get("daily") or []:
+        try:
+            d = datetime.strptime(item.get("date"), "%Y/%m/%d").date()
+            tmax = float(item.get("high"))
+            tmin = float(item.get("low"))
+        except Exception:
+            continue
+        day_text = str(item.get("dayText") or "天气")
+        night_text = str(item.get("nightText") or day_text)
+        weather_text = day_text if day_text == night_text else f"{day_text}转{night_text}"
+        rainish = any(k in weather_text for k in ["雨", "雪", "雷", "雹"])
+        tip = clothing_tip(tmax, tmin, 61 if rainish else 0)
+        wind = f"白天{item.get('dayWindDirection', '-')}{item.get('dayWindScale', '')}，夜间{item.get('nightWindDirection', '-')}{item.get('nightWindScale', '')}"
+        rows.append({
+            "date": d,
+            "summary": f"{weather_text} {tmin:.0f}-{tmax:.0f}℃｜穿衣：{tip}",
+            "description": f"天气：{weather_text}\n温度：{tmin:.0f}-{tmax:.0f}℃\n穿衣推荐：{tip}\n风力：{wind}\n数据源：中国气象局 CMA\n站点：{location.get('name', CITY)} ({CMA_STATION_ID})",
+        })
+    return rows
+
+
+def load_open_meteo_weather() -> list[dict]:
     params = urllib.parse.urlencode({
         "latitude": LAT,
         "longitude": LON,
@@ -554,13 +624,15 @@ def load_weather() -> list[dict]:
         tmin = float(daily.get("temperature_2m_min", [0])[i])
         rain = daily.get("precipitation_probability_max", [None])[i]
         tip = clothing_tip(tmax, tmin, code)
-        weather_text = weather_code_text(code)
+        weather_text = conservative_weather_text(code, rain)
         rows.append({
             "date": date.fromisoformat(day),
             "summary": f"{weather_text} {tmin:.0f}-{tmax:.0f}℃｜穿衣：{tip}",
-            "description": f"天气：{weather_text}\n温度：{tmin:.0f}-{tmax:.0f}℃\n穿衣推荐：{tip}\n降水概率：{rain if rain is not None else '-'}%\n数据源：Open-Meteo",
+            "description": f"天气：{weather_text}\n温度：{tmin:.0f}-{tmax:.0f}℃\n穿衣推荐：{tip}\n降水概率：{rain if rain is not None else '-'}%\n数据源：Open-Meteo（低降水概率雨/雷暴会保守显示）",
         })
     return rows
+
+
 
 
 def esc(text: str) -> str:
