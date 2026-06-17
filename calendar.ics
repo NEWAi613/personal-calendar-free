@@ -6,89 +6,86 @@ METHOD:PUBLISH
 X-WR-CALNAME:北京海淀生活提醒
 X-WR-TIMEZONE:Asia/Shanghai
 BEGIN:VEVENT
-UID:78d2dcd207aa5730afc3a76374fa818133ef2b0b@personal-calendar-free
-DTSTAMP:20260616T234530Z
-DTSTART;VALUE=DATE:20260617
-DTEND;VALUE=DATE:20260618
-SUMMARY:多云 21-33℃｜穿衣：短袖/轻薄透气，注意防晒，
- 昼夜温差大
-DESCRIPTION:天气：多云\n温度：21-33℃\n穿衣推荐：短袖/轻
- 薄透气，注意防晒，昼夜温差大\n风力：白天东南风微
- 风，夜间北风微风\n数据源：中国气象局 CMA\n站点：海
- 淀 (54399)
-END:VEVENT
-BEGIN:VEVENT
-UID:de50ced2a09514cba7b870929dc96015ba3ac039@personal-calendar-free
-DTSTAMP:20260616T234530Z
+UID:66f5a859f7e99f387e3c290c55927a08a4a30ac3@personal-calendar-free
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260618
 DTEND;VALUE=DATE:20260619
-SUMMARY:多云转阴 22-31℃｜穿衣：短袖/轻薄透气，注意防
- 晒
-DESCRIPTION:天气：多云转阴\n温度：22-31℃\n穿衣推荐：短
- 袖/轻薄透气，注意防晒\n风力：白天南风微风，夜间北
+SUMMARY:多云 22-31℃｜穿衣：短袖/轻薄透气，注意防晒
+DESCRIPTION:天气：多云\n温度：22-31℃\n穿衣推荐：短袖/轻
+ 薄透气，注意防晒\n风力：白天东南风微风，夜间东北
  风微风\n数据源：中国气象局 CMA\n站点：海淀 (54399)
 END:VEVENT
 BEGIN:VEVENT
-UID:34cd02749e6135fac2bdde72cab912221a6c21e6@personal-calendar-free
-DTSTAMP:20260616T234530Z
+UID:b422f86fdd49a0e3bcb7f8763c3552bfedd3bebd@personal-calendar-free
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260619
 DTEND;VALUE=DATE:20260620
-SUMMARY:小雨 19-30℃｜穿衣：短袖/轻薄透气，注意防晒，
- 带伞，昼夜温差大
-DESCRIPTION:天气：小雨\n温度：19-30℃\n穿衣推荐：短袖/轻
- 薄透气，注意防晒，带伞，昼夜温差大\n风力：白天西
- 北风微风，夜间北风微风\n数据源：中国气象局 CMA\n站
- 点：海淀 (54399)
+SUMMARY:小雨 20-28℃｜穿衣：短袖/轻薄透气，注意防晒，
+ 带伞
+DESCRIPTION:天气：小雨\n温度：20-28℃\n穿衣推荐：短袖/轻
+ 薄透气，注意防晒，带伞\n风力：白天北风微风，夜间
+ 北风微风\n数据源：中国气象局 CMA\n站点：海淀 (54399)
 END:VEVENT
 BEGIN:VEVENT
 UID:8f9974ffb0d76b6f694161b288e3340151b8b9ae@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260620
 DTEND;VALUE=DATE:20260621
 SUMMARY:晴 17-30℃｜穿衣：短袖/轻薄透气，注意防晒，昼
  夜温差大
 DESCRIPTION:天气：晴\n温度：17-30℃\n穿衣推荐：短袖/轻薄
- 透气，注意防晒，昼夜温差大\n风力：白天北风微风，
- 夜间北风微风\n数据源：中国气象局 CMA\n站点：海淀 (54
- 399)
+ 透气，注意防晒，昼夜温差大\n风力：白天西北风微风
+ ，夜间北风微风\n数据源：中国气象局 CMA\n站点：海淀 
+ (54399)
 END:VEVENT
 BEGIN:VEVENT
-UID:bb02191209e23bd704f600d2f4e3e69008921da4@personal-calendar-free
-DTSTAMP:20260616T234530Z
+UID:7fa8885adba8414d8a2ead3e178d1147bd9ac486@personal-calendar-free
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260621
 DTEND;VALUE=DATE:20260622
-SUMMARY:晴 18-28℃｜穿衣：短袖/轻薄透气，注意防晒，昼
- 夜温差大
-DESCRIPTION:天气：晴\n温度：18-28℃\n穿衣推荐：短袖/轻薄
- 透气，注意防晒，昼夜温差大\n风力：白天南风微风，
- 夜间南风微风\n数据源：中国气象局 CMA\n站点：海淀 (54
- 399)
+SUMMARY:晴转多云 18-27℃｜穿衣：长袖或薄外套，早晚看
+ 体感
+DESCRIPTION:天气：晴转多云\n温度：18-27℃\n穿衣推荐：长
+ 袖或薄外套，早晚看体感\n风力：白天东风微风，夜间
+ 东南风微风\n数据源：中国气象局 CMA\n站点：海淀 (54399
+ )
 END:VEVENT
 BEGIN:VEVENT
-UID:8ffe4f753f5ac4e6ae8a149c9b2a742362a44569@personal-calendar-free
-DTSTAMP:20260616T234530Z
+UID:3de6d19d75eba0903a1fc1b306f781bb03b66acf@personal-calendar-free
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260622
 DTEND;VALUE=DATE:20260623
-SUMMARY:多云 20-29℃｜穿衣：短袖/轻薄透气，注意防晒
-DESCRIPTION:天气：多云\n温度：20-29℃\n穿衣推荐：短袖/轻
- 薄透气，注意防晒\n风力：白天南风微风，夜间南风微
- 风\n数据源：中国气象局 CMA\n站点：海淀 (54399)
+SUMMARY:多云 18-27℃｜穿衣：长袖或薄外套，早晚看体感
+DESCRIPTION:天气：多云\n温度：18-27℃\n穿衣推荐：长袖或
+ 薄外套，早晚看体感\n风力：白天南风微风，夜间南风3
+ ~4级\n数据源：中国气象局 CMA\n站点：海淀 (54399)
 END:VEVENT
 BEGIN:VEVENT
-UID:5730f72c77c9f10e2c3af83dd5639a5f1ef0d3cc@personal-calendar-free
-DTSTAMP:20260616T234530Z
+UID:01e96772763ab05b7638f258be8de786f61bcd81@personal-calendar-free
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260623
 DTEND;VALUE=DATE:20260624
-SUMMARY:多云 20-31℃｜穿衣：短袖/轻薄透气，注意防晒，
+SUMMARY:多云 19-32℃｜穿衣：短袖/轻薄透气，注意防晒，
  昼夜温差大
-DESCRIPTION:天气：多云\n温度：20-31℃\n穿衣推荐：短袖/轻
- 薄透气，注意防晒，昼夜温差大\n风力：白天东南风微
- 风，夜间东南风微风\n数据源：中国气象局 CMA\n站点：
- 海淀 (54399)
+DESCRIPTION:天气：多云\n温度：19-32℃\n穿衣推荐：短袖/轻
+ 薄透气，注意防晒，昼夜温差大\n风力：白天南风微风
+ ，夜间东北风微风\n数据源：中国气象局 CMA\n站点：海
+ 淀 (54399)
+END:VEVENT
+BEGIN:VEVENT
+UID:dfe5f9124bfad3344533d666f5bdc7b414f0f005@personal-calendar-free
+DTSTAMP:20260617T234832Z
+DTSTART;VALUE=DATE:20260624
+DTEND;VALUE=DATE:20260625
+SUMMARY:多云转晴 19-28℃｜穿衣：短袖/轻薄透气，注意防
+ 晒
+DESCRIPTION:天气：多云转晴\n温度：19-28℃\n穿衣推荐：短
+ 袖/轻薄透气，注意防晒\n风力：白天南风微风，夜间南
+ 风微风\n数据源：中国气象局 CMA\n站点：海淀 (54399)
 END:VEVENT
 BEGIN:VEVENT
 UID:a7007df7445acb5160db5ebf9e880739050ae7b1@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260619
 DTEND;VALUE=DATE:20260622
 SUMMARY:端午节假期
@@ -97,7 +94,7 @@ DESCRIPTION:中国大陆节假日：端午节假期\n日期：2026-06-19
 END:VEVENT
 BEGIN:VEVENT
 UID:8ba5c80ea7103458e313f4b512db4e17214cd3e4@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260928
 SUMMARY:中秋节假期
@@ -106,7 +103,7 @@ DESCRIPTION:中国大陆节假日：中秋节假期\n日期：2026-09-25
 END:VEVENT
 BEGIN:VEVENT
 UID:cc0b5c75dc6d417bddd55bb9988207fa2cd47629@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261008
 SUMMARY:国庆节假期
@@ -115,7 +112,7 @@ DESCRIPTION:中国大陆节假日：国庆节假期\n日期：2026-10-01
 END:VEVENT
 BEGIN:VEVENT
 UID:8007d46d500ab6e98a395b67db4eec18eac631e5@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270104
 SUMMARY:元旦假期
@@ -124,7 +121,7 @@ DESCRIPTION:中国大陆节假日：元旦假期\n日期：2027-01-01 至
 END:VEVENT
 BEGIN:VEVENT
 UID:a0c069dd4c9a23a1c6b981fbd26e0b6ce1958301@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260701
 DTEND;VALUE=DATE:20260702
 SUMMARY:建党节
@@ -132,7 +129,7 @@ DESCRIPTION:中国大陆常见节日：建党节
 END:VEVENT
 BEGIN:VEVENT
 UID:5c9bd502fa6f43b289ac9be07d591f50008fec84@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:建军节
@@ -140,7 +137,7 @@ DESCRIPTION:中国大陆常见节日：建军节
 END:VEVENT
 BEGIN:VEVENT
 UID:07f0dc9b510655b1c74d79fadfa4487eb467938f@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260819
 DTEND;VALUE=DATE:20260820
 SUMMARY:七夕节
@@ -148,7 +145,7 @@ DESCRIPTION:中国大陆常见节日：七夕节
 END:VEVENT
 BEGIN:VEVENT
 UID:b3b35919b0f85550371d3c6c34b93e666c419e4c@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260827
 DTEND;VALUE=DATE:20260828
 SUMMARY:中元节
@@ -156,7 +153,7 @@ DESCRIPTION:中国大陆常见节日：中元节
 END:VEVENT
 BEGIN:VEVENT
 UID:048ea3c1f5c593ea8d555215cea191e462f4d946@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260903
 DTEND;VALUE=DATE:20260904
 SUMMARY:中国人民抗日战争胜利纪念日
@@ -165,7 +162,7 @@ DESCRIPTION:中国大陆常见节日：中国人民抗日战争胜利纪
 END:VEVENT
 BEGIN:VEVENT
 UID:f59507c630b5bf8465be090683ae9b0402e116a7@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260910
 DTEND;VALUE=DATE:20260911
 SUMMARY:教师节
@@ -173,7 +170,7 @@ DESCRIPTION:中国大陆常见节日：教师节
 END:VEVENT
 BEGIN:VEVENT
 UID:7b303ce325693698909a0578d059905b2240db95@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:烈士纪念日
@@ -181,7 +178,7 @@ DESCRIPTION:中国大陆常见节日：烈士纪念日
 END:VEVENT
 BEGIN:VEVENT
 UID:00f19f5f44da282fabf65190e384db99ecd56cec@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:重阳节
@@ -189,7 +186,7 @@ DESCRIPTION:中国大陆常见节日：重阳节
 END:VEVENT
 BEGIN:VEVENT
 UID:2ae0c6e177846fa8de700dfc9d19449d3cccd363@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:记者节
@@ -197,7 +194,7 @@ DESCRIPTION:中国大陆常见节日：记者节
 END:VEVENT
 BEGIN:VEVENT
 UID:3003c0e95b301c54c02bb051237dbb4b4e36de00@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:国家宪法日
@@ -205,7 +202,7 @@ DESCRIPTION:中国大陆常见节日：国家宪法日
 END:VEVENT
 BEGIN:VEVENT
 UID:d92f02df3b9ce66b58edcde0632d8dbca66aa4f3@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:南京大屠杀死难者国家公祭日
@@ -214,7 +211,7 @@ DESCRIPTION:中国大陆常见节日：南京大屠杀死难者国家公
 END:VEVENT
 BEGIN:VEVENT
 UID:6edb7976fb68a0d9158c35e66bd47b8d3d62c9d0@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:澳门回归纪念日
@@ -222,7 +219,7 @@ DESCRIPTION:中国大陆常见节日：澳门回归纪念日
 END:VEVENT
 BEGIN:VEVENT
 UID:f4dd49bbf5253da928ab9a4f67ffe86cd450aded@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20270308
 DTEND;VALUE=DATE:20270309
 SUMMARY:妇女节
@@ -230,7 +227,7 @@ DESCRIPTION:中国大陆常见节日：妇女节
 END:VEVENT
 BEGIN:VEVENT
 UID:ee093d972e566691e83dba7b69ee1e1cba88582d@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20270312
 DTEND;VALUE=DATE:20270313
 SUMMARY:植树节
@@ -238,7 +235,7 @@ DESCRIPTION:中国大陆常见节日：植树节
 END:VEVENT
 BEGIN:VEVENT
 UID:31dd91998d82be33def7295846ed1839dd60f98e@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:劳动节
@@ -246,7 +243,7 @@ DESCRIPTION:中国大陆常见节日：劳动节
 END:VEVENT
 BEGIN:VEVENT
 UID:4148c4b270879b8226ab32b0cb32c708c800c461@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20270504
 DTEND;VALUE=DATE:20270505
 SUMMARY:青年节
@@ -254,7 +251,7 @@ DESCRIPTION:中国大陆常见节日：青年节
 END:VEVENT
 BEGIN:VEVENT
 UID:f7729bf3cdcb73c0b400c1d04020b44d732f5e91@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:儿童节
@@ -262,7 +259,7 @@ DESCRIPTION:中国大陆常见节日：儿童节
 END:VEVENT
 BEGIN:VEVENT
 UID:de892676004e565261c0db4cb407818df04b5f87@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260621
 DTEND;VALUE=DATE:20260622
 SUMMARY:夏至
@@ -271,7 +268,7 @@ DESCRIPTION:二十四节气：夏至\n典故：夏至白昼最长，古
 END:VEVENT
 BEGIN:VEVENT
 UID:5a572fdde59353c0dcd8da9100743382a877905c@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260707
 DTEND;VALUE=DATE:20260708
 SUMMARY:小暑
@@ -280,7 +277,7 @@ DESCRIPTION:二十四节气：小暑\n典故：小暑意为暑气初盛
 END:VEVENT
 BEGIN:VEVENT
 UID:ca250cce040a9ad6f22205441417e93a61cb238a@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260723
 DTEND;VALUE=DATE:20260724
 SUMMARY:大暑
@@ -289,7 +286,7 @@ DESCRIPTION:二十四节气：大暑\n典故：大暑是一年暑热最
 END:VEVENT
 BEGIN:VEVENT
 UID:e228ec7a29e15c4947212c0fab6a7806a6fa5e01@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260807
 DTEND;VALUE=DATE:20260808
 SUMMARY:立秋
@@ -298,7 +295,7 @@ DESCRIPTION:二十四节气：立秋\n典故：立秋标志秋季开启
 END:VEVENT
 BEGIN:VEVENT
 UID:07915847421f2e182be306382fb57817f66c9a2e@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260823
 DTEND;VALUE=DATE:20260824
 SUMMARY:处暑
@@ -307,7 +304,7 @@ DESCRIPTION:二十四节气：处暑\n典故：处暑意为暑气到此
 END:VEVENT
 BEGIN:VEVENT
 UID:a836d2d89e00da19feadda94cfb213748fcf0b84@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260907
 DTEND;VALUE=DATE:20260908
 SUMMARY:白露
@@ -316,7 +313,7 @@ DESCRIPTION:二十四节气：白露\n典故：白露因夜间水汽凝
 END:VEVENT
 BEGIN:VEVENT
 UID:9ad0b3806c2914df5a2bc1648833eb6f4f225975@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20260923
 DTEND;VALUE=DATE:20260924
 SUMMARY:秋分
@@ -325,7 +322,7 @@ DESCRIPTION:二十四节气：秋分\n典故：秋分昼夜再度平分
 END:VEVENT
 BEGIN:VEVENT
 UID:cddf71039fd7f137ba3d3672a41ee49161a14d6c@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261008
 DTEND;VALUE=DATE:20261009
 SUMMARY:寒露
@@ -334,7 +331,7 @@ DESCRIPTION:二十四节气：寒露\n典故：寒露比白露更冷，
 END:VEVENT
 BEGIN:VEVENT
 UID:b83a11946f78db4a36baa0f225e0d28e2f4ba5a9@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:霜降
@@ -343,7 +340,7 @@ DESCRIPTION:二十四节气：霜降\n典故：霜降是秋季最后一
 END:VEVENT
 BEGIN:VEVENT
 UID:f0240d88ce66500a7f033b977c870981f31060bf@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:立冬
@@ -352,7 +349,7 @@ DESCRIPTION:二十四节气：立冬\n典故：立冬为冬季开始，
 END:VEVENT
 BEGIN:VEVENT
 UID:862ba980817b0d91d12ba906f7920c0e2e199e2c@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:小雪
@@ -361,7 +358,7 @@ DESCRIPTION:二十四节气：小雪\n典故：小雪表示降雪渐起
 END:VEVENT
 BEGIN:VEVENT
 UID:a9fe8fd79fd404e487de9632affc49a5c2b2cf5c@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
 SUMMARY:大雪
@@ -370,7 +367,7 @@ DESCRIPTION:二十四节气：大雪\n典故：大雪表示雪量增多
 END:VEVENT
 BEGIN:VEVENT
 UID:6a3da07520b66e4bc59ad757eee9ec262751ccc7@personal-calendar-free
-DTSTAMP:20260616T234530Z
+DTSTAMP:20260617T234832Z
 DTSTART;VALUE=DATE:20261222
 DTEND;VALUE=DATE:20261223
 SUMMARY:冬至
@@ -378,73 +375,76 @@ DESCRIPTION:二十四节气：冬至\n典故：冬至阳气始生，古
  人称“冬至大如年”，北方吃饺子，南方吃汤圆。
 END:VEVENT
 BEGIN:VEVENT
-UID:e7b548f3cb9a905752e6363dfea3e8ac2f01ec11@personal-calendar-free
-DTSTAMP:20260616T234546Z
-DTSTART;TZID=Asia/Shanghai:20260617T200000
-DTEND;TZID=Asia/Shanghai:20260617T203000
-SUMMARY:影视每日热度：章若楠金靖新片定档7.24，二十年
- 闺蜜情守护“我罩着你” - 新浪财…
+UID:50b3f1fb80c2c218ade1bf6ece5881bcc9adae08@personal-calendar-free
+DTSTAMP:20260617T234849Z
+DTSTART;TZID=Asia/Shanghai:20260618T200000
+DTEND;TZID=Asia/Shanghai:20260618T203000
+SUMMARY:影视每日热度：八戒影视大全评测：多维指标交
+ 叉验证下的真实表现 - 国际金融报
 DESCRIPTION:每日热点电影/电视剧推荐，优先使用近 24 小
- 时新闻，生成时间：2026-06-17 07:45\n\n1. [电影] 章若楠金
- 靖新片定档7.24，二十年闺蜜情守护“我罩着你”\n   提
- 炼：电影信息：章若楠金靖新片定档7.24；关键信息：
- 二十年闺蜜情守护“我罩着你”。适合快速判断近期院
- 线/平台新片和档期热度。｜来源：新浪财经\n\n2. [电影
- ] 诺曼底72小时｜豆瓣热门电影\n   提炼：豆瓣热门电影
- 推荐；评分：8.2。适合快速判断今天值得关注的电影。
- ｜来源：豆瓣\n\n3. [电影] 大濛｜豆瓣热门电影\n   提炼
- ：豆瓣热门电影推荐；评分：8.0。适合快速判断今天值
- 得关注的电影。｜来源：豆瓣\n\n4. [电视剧] 铁拳教育
- ｜豆瓣热门电视剧\n   提炼：豆瓣热门电视剧推荐；评
- 分：8.8。适合快速判断今天值得关注的电视剧。｜来源
- ：豆瓣\n\n5. [电视剧] 南部档案｜豆瓣热门电视剧\n   提
- 炼：豆瓣热门电视剧推荐；评分：暂无评分。适合快速
- 判断今天值得关注的电视剧。｜来源：豆瓣
+ 时新闻，生成时间：2026-06-18 07:48\n\n1. [热点] 八戒影视
+ 大全评测：多维指标交叉验证下的真实表现\n   提炼：
+ 热点信息：八戒影视大全评测；关键信息：多维指标交
+ 叉验证下的真实表现。适合先判断是否值得继续点开。
+ ｜来源：国际金融报\n\n2. [电影] 诺曼底72小时｜豆瓣热
+ 门电影\n   提炼：豆瓣热门电影推荐；评分：8.2。适合
+ 快速判断今天值得关注的电影。｜来源：豆瓣\n\n3. [电
+ 影] 大濛｜豆瓣热门电影\n   提炼：豆瓣热门电影推荐
+ ；评分：8.0。适合快速判断今天值得关注的电影。｜来
+ 源：豆瓣\n\n4. [电视剧] 铁拳教育｜豆瓣热门电视剧\n   
+ 提炼：豆瓣热门电视剧推荐；评分：8.8。适合快速判断
+ 今天值得关注的电视剧。｜来源：豆瓣\n\n5. [电视剧] 
+ 南部档案｜豆瓣热门电视剧\n   提炼：豆瓣热门电视剧
+ 推荐；评分：暂无评分。适合快速判断今天值得关注的
+ 电视剧。｜来源：豆瓣
 END:VEVENT
 BEGIN:VEVENT
-UID:77615605ad7c7f6f72801c0956507e3806692a01@personal-calendar-free
-DTSTAMP:20260616T234546Z
-DTSTART;TZID=Asia/Shanghai:20260617T210000
-DTEND;TZID=Asia/Shanghai:20260617T213000
-SUMMARY:近期即将上映/开播：章若楠金靖新片定档7.24，二
- 十年闺蜜情守护“我罩着你”｜近…
+UID:d71386a8108ed27ee8c0dfe091d733768dab1e88@personal-calendar-free
+DTSTAMP:20260617T234849Z
+DTSTART;TZID=Asia/Shanghai:20260618T210000
+DTEND;TZID=Asia/Shanghai:20260618T213000
+SUMMARY:近期即将上映/开播：近20部影片扎堆上映，影市
+ 迎来“最挤”端午档｜近期电影
 DESCRIPTION:近期即将上映/开播内容，覆盖电影、电视剧、
- 短剧、动漫，生成时间：2026-06-17 07:45\n\n1. [电影] 章若
- 楠金靖新片定档7.24，二十年闺蜜情守护“我罩着你”
- ｜近期电影\n   提炼：日期：见新闻/平台官宣；演员/
- 主创：见原文；简介：电影信息：章若楠金靖新片定档
- 7.24；关键信息：二十年闺蜜情守护“我罩着你”。适
+ 短剧、动漫，生成时间：2026-06-18 07:48\n\n1. [电影] 近20
+ 部影片扎堆上映，影市迎来“最挤”端午档｜近期电影
+ \n   提炼：日期：见新闻/平台官宣；演员/主创：见原
+ 文；简介：电影信息：近20部影片扎堆上映；关键信息
+ ：影市迎来“最挤”端午档。适合快速判断近期院线/
+ 平台新片和档期热度。｜来源：Sohu\n\n2. [电影] 端午档
+ 新片｜软科幻包裹青春暖意《我看见两朵一样的云》6
+ 月19日上映｜近期电影\n   提炼：日期：6月19日；演员/
+ 主创：见原文；简介：电影信息：端午档新片｜软科幻
+ 包裹青春暖意《我看见两朵一样的云》6月19日上映。适
  合快速判断近期院线/平台新片和档期热度。｜来源：
- 新浪财经\n\n2. [电影] 《一个部门的诞生》定档6月27日
- 内地上映 黑色喜剧爆笑来袭｜近期电影\n   提炼：日期
- ：6月27日；演员/主创：见原文；简介：电影信息：《
- 一个部门的诞生》定档6月27日内地上映 黑色喜剧爆笑
- 来袭。适合快速判断近期院线/平台新片和档期热度。
- ｜来源：中国娱乐网\n\n3. [电视剧] 2026问心2定档618爱奇
- 艺开播，原班人马续写医者仁心!|林逸|毛晓彤|爱奇艺|
- 第一季|金世佳|问心2｜近期电视剧\n   提炼：日期：见
- 新闻/平台官宣；演员/主创：见原文；简介：剧集信息
- ：2026问心2定档618爱奇艺开播；关键信息：原班人马续
- 写医者仁心；|林逸|毛晓彤|爱奇艺|第一季|金世佳|问心
- 2。适合快速判断今天有哪些剧在更新、开播或收官。
- ｜来源：新浪网\n\n4. [电视剧] 电视剧爱情有烟火：｜
- 近期电视剧\n   提炼：日期：见新闻/平台官宣；演员/
- 主创：见原文；简介：剧集信息：电视剧爱情有烟火：
- 。适合快速判断今天有哪些剧在更新、开播或收官。｜
- 来源：新浪网\n\n5. [电视剧] 【影视】2026全网最爆中国
- 短剧《少夫人来自东北2》开播！大马演员Kevin爆火｜近
- 期短剧\n   提炼：日期：见新闻/平台官宣；演员/主创
- ：见原文；简介：剧集信息：【影视】2026全网最爆中
- 国短剧《少夫人来自东北2》开播；关键信息：大马演
- 员Kevin爆火。适合快速判断今天有哪些剧在更新、开播
- 或收官。｜来源：GOODY25\n\n6. [电影] 我看见两朵一样的
- 云｜即将上映电影\n   提炼：日期：06月19日；类型：爱
- 情 / 科幻；地区：中国大陆；热度：98439人 想看｜来源
- ：豆瓣\n\n7. [电影] 大鱼海棠｜即将上映电影\n   提炼：
- 日期：06月19日；类型：剧情 / 动画 / 奇幻；地区：中
- 国大陆；热度：70836人 想看｜来源：豆瓣\n\n8. [电影] 
- 玩具总动员5｜即将上映电影\n   提炼：日期：06月19日
- ；类型：剧情 / 喜剧 / 动画；地区：美国；热度：35883
- 人 想看｜来源：豆瓣
+ 新浪财经\n\n3. [电视剧] “积压剧”逆袭！《爱情有烟
+ 火》次日热度翻四倍登顶多榜｜近期电视剧\n   提炼：
+ 日期：见新闻/平台官宣；演员/主创：见原文；简介：
+ 热点信息：“积压剧”逆袭；关键信息：《爱情有烟火
+ 》次日热度翻四倍登顶多榜。适合先判断是否值得继续
+ 点开。｜来源：新浪网\n\n4. [电视剧] 电视剧《云秀行
+ 》具体的播出时间和在哪个平台可以看？｜近期电视剧
+ \n   提炼：日期：见新闻/平台官宣；演员/主创：见原
+ 文；简介：剧集信息：电视剧《云秀行》具体的播出时
+ 间和在哪个平台可以看？。适合快速判断今天有哪些剧
+ 在更新、开播或收官。｜来源：新浪网\n\n5. [电视剧] 
+ 综艺《开播!短剧季》试播《包拯与公孙策》ip，刘擎何
+ 健麒双强联手创办“侦探社”｜近期短剧\n   提炼：日
+ 期：见新闻/平台官宣；演员/主创：见原文；简介：剧
+ 集信息：综艺《开播；关键信息：短剧季》试播《包拯
+ 与公孙策》ip；刘擎何健麒双强联手创办“侦探社”。
+ 适合快速判断今天有哪些剧在更新、开播或收官。｜来
+ 源：新浪网\n\n6. [热点] 分化加剧！短剧演员进军长剧
+ 实绩盘点：飞升、上岸、试水三档分层｜近期短剧\n   
+ 提炼：日期：见新闻/平台官宣；演员/主创：见原文；
+ 简介：热点信息：分化加剧；关键信息：短剧演员进军
+ 长剧实绩盘点；飞升、上岸、试水三档分层。适合先判
+ 断是否值得继续点开。｜来源：新浪网\n\n7. [电影] 我
+ 看见两朵一样的云｜即将上映电影\n   提炼：日期：06
+ 月19日；类型：爱情 / 科幻；地区：中国大陆；热度：9
+ 8616人 想看｜来源：豆瓣\n\n8. [电影] 大鱼海棠｜即将上
+ 映电影\n   提炼：日期：06月19日；类型：剧情 / 动画 / 
+ 奇幻；地区：中国大陆；热度：70860人 想看｜来源：豆
+ 瓣
 END:VEVENT
 END:VCALENDAR
