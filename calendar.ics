@@ -6,86 +6,82 @@ METHOD:PUBLISH
 X-WR-CALNAME:北京海淀生活提醒
 X-WR-TIMEZONE:Asia/Shanghai
 BEGIN:VEVENT
-UID:39e6f3ea53f169d69eced58fefecd3bc5c14f9cc@personal-calendar-free
-DTSTAMP:20261116T015631Z
-DTSTART;VALUE=DATE:20261116
-DTEND;VALUE=DATE:20261117
-SUMMARY:阴 2-9℃｜穿衣：厚外套/毛衣，注意保暖
-DESCRIPTION:天气：阴\n温度：2-9℃\n穿衣推荐：厚外套/毛
- 衣，注意保暖\n风力：白天东风微风，夜间北风微风\n
- 数据源：中国气象局 CMA\n站点：海淀 (54399)
-END:VEVENT
-BEGIN:VEVENT
-UID:e577a541ab13b937463eae5ddd0403a495063246@personal-calendar-free
-DTSTAMP:20261116T015631Z
+UID:f617bd2f03fdfc315915c8d4cfd7b02abcb492a0@personal-calendar-free
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261117
 DTEND;VALUE=DATE:20261118
-SUMMARY:阴 1-9℃｜穿衣：厚外套/毛衣，注意保暖
-DESCRIPTION:天气：阴\n温度：1-9℃\n穿衣推荐：厚外套/毛
- 衣，注意保暖\n风力：白天南风微风，夜间西北风3~4级\
- n数据源：中国气象局 CMA\n站点：海淀 (54399)
+SUMMARY:多云，低概率降雨 2-8℃｜穿衣：羽绒服/厚外套，
+ 重点保暖，带伞
+DESCRIPTION:天气：多云，低概率降雨\n温度：2-8℃\n穿衣推
+ 荐：羽绒服/厚外套，重点保暖，带伞\n降水概率：14%\n
+ 数据源：Open-Meteo（低降水概率雨/雷暴会保守显示）
 END:VEVENT
 BEGIN:VEVENT
-UID:4e51f27a94e4e6c0a9e8ec1c01f833be92181f0d@personal-calendar-free
-DTSTAMP:20261116T015631Z
+UID:4369bd165a83cd31f0609583060eda85eed30d6a@personal-calendar-free
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
-SUMMARY:晴 -2-6℃｜穿衣：羽绒服/厚外套，重点保暖
-DESCRIPTION:天气：晴\n温度：-2-6℃\n穿衣推荐：羽绒服/厚
- 外套，重点保暖\n风力：白天西北风微风，夜间北风微
- 风\n数据源：中国气象局 CMA\n站点：海淀 (54399)
+SUMMARY:局部多云 -1-6℃｜穿衣：羽绒服/厚外套，重点保
+ 暖
+DESCRIPTION:天气：局部多云\n温度：-1-6℃\n穿衣推荐：羽
+ 绒服/厚外套，重点保暖\n降水概率：1%\n数据源：Open-Met
+ eo（低降水概率雨/雷暴会保守显示）
 END:VEVENT
 BEGIN:VEVENT
-UID:621fab5d21e31d77b2a76c5ea9c54c9f0a673bdf@personal-calendar-free
-DTSTAMP:20261116T015631Z
+UID:10444658445cbd900d56c229c8ea992e7110c349@personal-calendar-free
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261119
 DTEND;VALUE=DATE:20261120
-SUMMARY:晴转多云 -1-7℃｜穿衣：羽绒服/厚外套，重点保
+SUMMARY:大部晴朗 -2-5℃｜穿衣：羽绒服/厚外套，重点保
  暖
-DESCRIPTION:天气：晴转多云\n温度：-1-7℃\n穿衣推荐：羽
- 绒服/厚外套，重点保暖\n风力：白天西北风微风，夜间
- 西南风微风\n数据源：中国气象局 CMA\n站点：海淀 (54399
- )
+DESCRIPTION:天气：大部晴朗\n温度：-2-5℃\n穿衣推荐：羽
+ 绒服/厚外套，重点保暖\n降水概率：0%\n数据源：Open-Met
+ eo（低降水概率雨/雷暴会保守显示）
 END:VEVENT
 BEGIN:VEVENT
-UID:98ef6538e85ca60376df2ed9d0f9c1f04e9df58c@personal-calendar-free
-DTSTAMP:20261116T015631Z
+UID:08665cfae8fc80bb8595cf52e4b7ec1a6558c586@personal-calendar-free
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
-SUMMARY:多云转晴 -2-10℃｜穿衣：厚外套/毛衣，注意保暖
- ，昼夜温差大
-DESCRIPTION:天气：多云转晴\n温度：-2-10℃\n穿衣推荐：厚
- 外套/毛衣，注意保暖，昼夜温差大\n风力：白天西北风
- 微风，夜间北风微风\n数据源：中国气象局 CMA\n站点：
- 海淀 (54399)
+SUMMARY:阴 -2-6℃｜穿衣：羽绒服/厚外套，重点保暖
+DESCRIPTION:天气：阴\n温度：-2-6℃\n穿衣推荐：羽绒服/厚
+ 外套，重点保暖\n降水概率：0%\n数据源：Open-Meteo（低
+ 降水概率雨/雷暴会保守显示）
 END:VEVENT
 BEGIN:VEVENT
-UID:69f1b79e5a97bb455f9a1da3a8cf29ef3b06ddcb@personal-calendar-free
-DTSTAMP:20261116T015631Z
+UID:f0df1a6367246f29755951e445bacebadaa553be@personal-calendar-free
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
-SUMMARY:晴 -2-8℃｜穿衣：厚外套/毛衣，注意保暖，昼夜
- 温差大
-DESCRIPTION:天气：晴\n温度：-2-8℃\n穿衣推荐：厚外套/毛
- 衣，注意保暖，昼夜温差大\n风力：白天南风微风，夜
- 间西北风微风\n数据源：中国气象局 CMA\n站点：海淀 (54
- 399)
+SUMMARY:晴 -2-4℃｜穿衣：羽绒服/厚外套，重点保暖
+DESCRIPTION:天气：晴\n温度：-2-4℃\n穿衣推荐：羽绒服/厚
+ 外套，重点保暖\n降水概率：0%\n数据源：Open-Meteo（低
+ 降水概率雨/雷暴会保守显示）
 END:VEVENT
 BEGIN:VEVENT
-UID:9bab8a7de99e605c6137450071320749cd44d2df@personal-calendar-free
-DTSTAMP:20261116T015631Z
+UID:85dd5c61c71c08af266f304e115265eca83e0376@personal-calendar-free
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
-SUMMARY:晴 -2-9℃｜穿衣：厚外套/毛衣，注意保暖，昼夜
+SUMMARY:阴 -3-5℃｜穿衣：羽绒服/厚外套，重点保暖
+DESCRIPTION:天气：阴\n温度：-3-5℃\n穿衣推荐：羽绒服/厚
+ 外套，重点保暖\n降水概率：0%\n数据源：Open-Meteo（低
+ 降水概率雨/雷暴会保守显示）
+END:VEVENT
+BEGIN:VEVENT
+UID:c82cd559f46828d57459097042ed6507959c172f@personal-calendar-free
+DTSTAMP:20261117T042623Z
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
+SUMMARY:晴 -2-10℃｜穿衣：厚外套/毛衣，注意保暖，昼夜
  温差大
-DESCRIPTION:天气：晴\n温度：-2-9℃\n穿衣推荐：厚外套/毛
- 衣，注意保暖，昼夜温差大\n风力：白天东风微风，夜
- 间西北风微风\n数据源：中国气象局 CMA\n站点：海淀 (54
- 399)
+DESCRIPTION:天气：晴\n温度：-2-10℃\n穿衣推荐：厚外套/毛
+ 衣，注意保暖，昼夜温差大\n降水概率：0%\n数据源：Ope
+ n-Meteo（低降水概率雨/雷暴会保守显示）
 END:VEVENT
 BEGIN:VEVENT
 UID:8007d46d500ab6e98a395b67db4eec18eac631e5@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270104
 SUMMARY:元旦假期
@@ -94,7 +90,7 @@ DESCRIPTION:中国大陆节假日：元旦假期\n日期：2027-01-01 至
 END:VEVENT
 BEGIN:VEVENT
 UID:3003c0e95b301c54c02bb051237dbb4b4e36de00@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:国家宪法日
@@ -102,7 +98,7 @@ DESCRIPTION:中国大陆常见节日：国家宪法日
 END:VEVENT
 BEGIN:VEVENT
 UID:d92f02df3b9ce66b58edcde0632d8dbca66aa4f3@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:南京大屠杀死难者国家公祭日
@@ -111,7 +107,7 @@ DESCRIPTION:中国大陆常见节日：南京大屠杀死难者国家公
 END:VEVENT
 BEGIN:VEVENT
 UID:6edb7976fb68a0d9158c35e66bd47b8d3d62c9d0@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:澳门回归纪念日
@@ -119,7 +115,7 @@ DESCRIPTION:中国大陆常见节日：澳门回归纪念日
 END:VEVENT
 BEGIN:VEVENT
 UID:f4dd49bbf5253da928ab9a4f67ffe86cd450aded@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270308
 DTEND;VALUE=DATE:20270309
 SUMMARY:妇女节
@@ -127,7 +123,7 @@ DESCRIPTION:中国大陆常见节日：妇女节
 END:VEVENT
 BEGIN:VEVENT
 UID:ee093d972e566691e83dba7b69ee1e1cba88582d@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270312
 DTEND;VALUE=DATE:20270313
 SUMMARY:植树节
@@ -135,7 +131,7 @@ DESCRIPTION:中国大陆常见节日：植树节
 END:VEVENT
 BEGIN:VEVENT
 UID:31dd91998d82be33def7295846ed1839dd60f98e@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:劳动节
@@ -143,7 +139,7 @@ DESCRIPTION:中国大陆常见节日：劳动节
 END:VEVENT
 BEGIN:VEVENT
 UID:4148c4b270879b8226ab32b0cb32c708c800c461@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270504
 DTEND;VALUE=DATE:20270505
 SUMMARY:青年节
@@ -151,7 +147,7 @@ DESCRIPTION:中国大陆常见节日：青年节
 END:VEVENT
 BEGIN:VEVENT
 UID:f7729bf3cdcb73c0b400c1d04020b44d732f5e91@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:儿童节
@@ -159,7 +155,7 @@ DESCRIPTION:中国大陆常见节日：儿童节
 END:VEVENT
 BEGIN:VEVENT
 UID:665aa7afb42676d7d7caece821fbd7ddac9ddece@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270701
 DTEND;VALUE=DATE:20270702
 SUMMARY:建党节
@@ -167,7 +163,7 @@ DESCRIPTION:中国大陆常见节日：建党节
 END:VEVENT
 BEGIN:VEVENT
 UID:eb52f68e9f1336343c610f5a7229f51f4d3970a8@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270802
 SUMMARY:建军节
@@ -175,7 +171,7 @@ DESCRIPTION:中国大陆常见节日：建军节
 END:VEVENT
 BEGIN:VEVENT
 UID:58d1ad20caff9956ee31de6606951649d9161822@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270903
 DTEND;VALUE=DATE:20270904
 SUMMARY:中国人民抗日战争胜利纪念日
@@ -184,7 +180,7 @@ DESCRIPTION:中国大陆常见节日：中国人民抗日战争胜利纪
 END:VEVENT
 BEGIN:VEVENT
 UID:49edf9f221594cdf9417dc45daf9843e0c6181e2@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270910
 DTEND;VALUE=DATE:20270911
 SUMMARY:教师节
@@ -192,7 +188,7 @@ DESCRIPTION:中国大陆常见节日：教师节
 END:VEVENT
 BEGIN:VEVENT
 UID:e0d3de11463ca0761219e1e2d8c6c43dfdc26aad@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20270930
 DTEND;VALUE=DATE:20271001
 SUMMARY:烈士纪念日
@@ -200,7 +196,7 @@ DESCRIPTION:中国大陆常见节日：烈士纪念日
 END:VEVENT
 BEGIN:VEVENT
 UID:1579d401b4912488d1168dbf52900d05d9d1f864@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20271001
 DTEND;VALUE=DATE:20271002
 SUMMARY:国庆节
@@ -208,7 +204,7 @@ DESCRIPTION:中国大陆常见节日：国庆节
 END:VEVENT
 BEGIN:VEVENT
 UID:d793d11efba928c28937bb0ed0a8ffc0cf0be7d7@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20271108
 DTEND;VALUE=DATE:20271109
 SUMMARY:记者节
@@ -216,7 +212,7 @@ DESCRIPTION:中国大陆常见节日：记者节
 END:VEVENT
 BEGIN:VEVENT
 UID:862ba980817b0d91d12ba906f7920c0e2e199e2c@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:小雪
@@ -225,7 +221,7 @@ DESCRIPTION:二十四节气：小雪\n典故：小雪表示降雪渐起
 END:VEVENT
 BEGIN:VEVENT
 UID:a9fe8fd79fd404e487de9632affc49a5c2b2cf5c@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
 SUMMARY:大雪
@@ -234,7 +230,7 @@ DESCRIPTION:二十四节气：大雪\n典故：大雪表示雪量增多
 END:VEVENT
 BEGIN:VEVENT
 UID:6a3da07520b66e4bc59ad757eee9ec262751ccc7@personal-calendar-free
-DTSTAMP:20261116T015631Z
+DTSTAMP:20261117T042623Z
 DTSTART;VALUE=DATE:20261222
 DTEND;VALUE=DATE:20261223
 SUMMARY:冬至
@@ -242,64 +238,62 @@ DESCRIPTION:二十四节气：冬至\n典故：冬至阳气始生，古
  人称“冬至大如年”，北方吃饺子，南方吃汤圆。
 END:VEVENT
 BEGIN:VEVENT
-UID:36cc6c90184660785ebc93e5b92646a58574068f@personal-calendar-free
-DTSTAMP:20261116T015644Z
-DTSTART;TZID=Asia/Shanghai:20261116T200000
-DTEND;TZID=Asia/Shanghai:20261116T203000
-SUMMARY:影视每日热度：初体验1上映了吗_百度知道 - 肿瘤
- 瞭望
+UID:94974e268e3c4e36ec20677693ca87c66b8fa9a5@personal-calendar-free
+DTSTAMP:20261117T042645Z
+DTSTART;TZID=Asia/Shanghai:20261117T200000
+DTEND;TZID=Asia/Shanghai:20261117T203000
+SUMMARY:影视每日热度：请问小说中的nph是啥意思_百度知
+ 道 - 肿瘤瞭望
 DESCRIPTION:每日热点电影/电视剧推荐，优先使用近 24 小
- 时新闻，生成时间：2026-11-16 09:56\n\n1. [电影] 初体验1上
- 映了吗_百度知道\n   提炼：电影信息：初体验1上映了
- 吗_百度知道。适合快速判断近期院线/平台新片和档期
- 热度。｜来源：肿瘤瞭望\n\n2. [电影] ...是在哪里“约
- 会”吗?电影频道今天12:20为您播出《瞧这一家子\n   提
- 炼：电影信息：...是在哪里“约会”吗?电影频道今天12
- ；关键信息：20为您播出《瞧这一家子。适合快速判断
- 近期院线/平台新片和档期热度。｜来源：肿瘤瞭望\n\n3
- . [热点] 美国特工紧盯黄色网站搜捕拉丹_手机新浪网\n 
-   提炼：热点信息：美国特工紧盯黄色网站搜捕拉丹_手
- 机新浪网。适合先判断是否值得继续点开。｜来源：肿
- 瘤瞭望\n\n4. [热点] 高校十八禁青春校园题材大尺度美
- 剧引领潮流_观众_成长_年轻人\n   提炼：热点信息：高
- 校十八禁青春校园题材大尺度美剧引领潮流_观众_成长_
- 年轻人。适合先判断是否值得继续点开。｜来源：肿瘤
- 瞭望\n\n5. [电影] 古装女性复仇剧霓裳尽欢11月17日爱奇
- 艺开播孙艺燃裴子添高能对决_电视与剧集\n   提炼：剧
- 集信息：古装女性复仇剧霓裳尽欢11月17日爱奇艺开播
- 孙艺燃裴子添高能对决_电视与剧集。适合快速判断今
- 天有哪些剧在更新、开播或收官。｜来源：电影界
+ 时新闻，生成时间：2026-11-17 12:26\n\n1. [热点] 请问小说
+ 中的nph是啥意思_百度知道\n   提炼：热点信息：请问小
+ 说中的nph是啥意思_百度知道。适合先判断是否值得继
+ 续点开。｜来源：肿瘤瞭望\n\n2. [热点] 麻豆传媒无码\,
+ 内容形态与观看场景\,功能信息梳理\n   提炼：热点信
+ 息：麻豆传媒无码；关键信息：内容形态与观看场景；
+ 功能信息梳理。适合先判断是否值得继续点开。｜来源
+ ：肿瘤瞭望\n\n3. [热点] ...法国空姐2017不难空乘\,时尚\,
+ 时尚综合\,好看视频\n   提炼：热点信息：...法国空姐20
+ 17不难空乘；关键信息：时尚综合；好看视频。适合先
+ 判断是否值得继续点开。｜来源：肿瘤瞭望\n\n4. [热点]
+  我还是处女\,男朋友蹭蹭了很多次然后他的鸡鸡头进去
+ 了\,但是\n   提炼：热点信息：我还是处女；关键信息
+ ：男朋友蹭蹭了很多次然后他的鸡鸡头进去了。适合先
+ 判断是否值得继续点开。｜来源：肿瘤瞭望\n\n5. [电影]
+  可能的爱｜豆瓣热门电影\n   提炼：豆瓣热门电影推荐
+ ；评分：8.6。适合快速判断今天值得关注的电影。｜来
+ 源：豆瓣
 END:VEVENT
 BEGIN:VEVENT
-UID:6b3b89214f52c8b528c3f72ffaed49d0ab55b1d7@personal-calendar-free
-DTSTAMP:20261116T015644Z
-DTSTART;TZID=Asia/Shanghai:20261116T210000
-DTEND;TZID=Asia/Shanghai:20261116T213000
+UID:c885b07a82b1e13e4fe4bd1e10e185bc1e358924@personal-calendar-free
+DTSTAMP:20261117T042645Z
+DTSTART;TZID=Asia/Shanghai:20261117T210000
+DTEND;TZID=Asia/Shanghai:20261117T213000
 SUMMARY:近期即将上映/开播：2026年度电影总票房破320亿！
- 秋冬新片持续上新- 湖北日…
+ 秋冬新片持续上新｜近期电影
 DESCRIPTION:近期即将上映/开播内容，覆盖电影、电视剧、
- 短剧、动漫，生成时间：2026-11-16 09:56\n\n1. [电影] 2026年
- 度电影总票房破320亿！秋冬新片持续上新- 湖北日报新
- 闻客户端｜近期电影\n   提炼：日期：见新闻/平台官宣
- ；演员/主创：见原文；简介：电影信息：2026年度电影
- 总票房破320亿；关键信息：秋冬新片持续上新- 湖北日
- 报新闻客户端。适合快速判断近期院线/平台新片和档
- 期热度。｜来源：湖北日报传媒集团\n\n2. [电视剧] 民
- 国悬疑短剧补形追凶11.15爱奇艺开播缝尸匠搭女法医探
- 案_电视与剧集｜近期短剧\n   提炼：日期：见新闻/平
- 台官宣；演员/主创：见原文；简介：剧集信息：民国
- 悬疑短剧补形追凶11.15爱奇艺开播缝尸匠搭女法医探案_
- 电视与剧集。适合快速判断今天有哪些剧在更新、开播
- 或收官。｜来源：电影界\n\n3. [电影] 琴弓师｜即将上
- 映电影\n   提炼：日期：11月17日；类型：剧情；地区：
- 中国大陆；热度：92人 想看｜来源：豆瓣\n\n4. [电影] 
- 深度安静｜即将上映电影\n   提炼：日期：11月19日；类
- 型：剧情；地区：中国台湾 / 意大利；热度：11691人 想
- 看｜来源：豆瓣\n\n5. [电影] 饥饿游戏：收获日出｜即
- 将上映电影\n   提炼：日期：11月20日；类型：动作 / 科
- 幻 / 冒险；地区：美国；热度：12290人 想看｜来源：豆
- 瓣\n\n6. [电影] 霹雳英雄：素还真｜即将上映电影\n   提
- 炼：日期：11月20日；类型：剧情 / 武侠 / 古装；地区
- ：中国台湾；热度：759人 想看｜来源：豆瓣
+ 短剧、动漫，生成时间：2026-11-17 12:26\n\n1. [电影] 2026年
+ 度电影总票房破320亿！秋冬新片持续上新｜近期电影\n 
+   提炼：日期：见新闻/平台官宣；演员/主创：见原文
+ ；简介：电影信息：2026年度电影总票房破320亿；关键
+ 信息：秋冬新片持续上新。适合快速判断近期院线/平
+ 台新片和档期热度。｜来源：新湖南\n\n2. [电视剧] 斓
+ 曦陶昕然谭松韵陈思斯等《甄嬛传》老演员\,组团力挺
+ 蒋欣新剧《多喜一家人》｜近期电视剧\n   提炼：日期
+ ：见新闻/平台官宣；演员/主创：见原文；简介：剧集
+ 信息：斓曦陶昕然谭松韵陈思斯等《甄嬛传》老演员；
+ 关键信息：组团力挺蒋欣新剧《多喜一家人》。适合快
+ 速判断今天有哪些剧在更新、开播或收官。｜来源：加
+ 西网\n\n3. [电影] 深度安静｜即将上映电影\n   提炼：日
+ 期：11月19日；类型：剧情；地区：中国台湾 / 意大利
+ ；热度：11736人 想看｜来源：豆瓣\n\n4. [电影] 饥饿游
+ 戏：收获日出｜即将上映电影\n   提炼：日期：11月20日
+ ；类型：动作 / 科幻 / 冒险；地区：美国；热度：12762
+ 人 想看｜来源：豆瓣\n\n5. [电影] 霹雳英雄：素还真｜
+ 即将上映电影\n   提炼：日期：11月20日；类型：剧情 / 
+ 武侠 / 古装；地区：中国台湾；热度：780人 想看｜来
+ 源：豆瓣\n\n6. [电影] 金哲｜即将上映电影\n   提炼：日
+ 期：11月20日；类型：剧情 / 喜剧 / 家庭；地区：中国
+ 大陆；热度：440人 想看｜来源：豆瓣
 END:VEVENT
 END:VCALENDAR
